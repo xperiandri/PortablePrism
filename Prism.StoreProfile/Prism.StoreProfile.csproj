@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B68F4655-5644-47E1-99BB-154F1FEBA0E2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Microsoft.Practices.Prism</RootNamespace>
+    <AssemblyName>Microsoft.Practices.Prism.StoreProfile</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <CodeContractsAssemblyMode>0</CodeContractsAssemblyMode>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeContractsEnableRuntimeChecking>True</CodeContractsEnableRuntimeChecking>
+    <CodeContractsRuntimeOnlyPublicSurface>False</CodeContractsRuntimeOnlyPublicSurface>
+    <CodeContractsRuntimeThrowOnFailure>True</CodeContractsRuntimeThrowOnFailure>
+    <CodeContractsRuntimeCallSiteRequires>False</CodeContractsRuntimeCallSiteRequires>
+    <CodeContractsRuntimeSkipQuantifiers>False</CodeContractsRuntimeSkipQuantifiers>
+    <CodeContractsRunCodeAnalysis>True</CodeContractsRunCodeAnalysis>
+    <CodeContractsNonNullObligations>False</CodeContractsNonNullObligations>
+    <CodeContractsBoundsObligations>False</CodeContractsBoundsObligations>
+    <CodeContractsArithmeticObligations>False</CodeContractsArithmeticObligations>
+    <CodeContractsEnumObligations>False</CodeContractsEnumObligations>
+    <CodeContractsRedundantAssumptions>False</CodeContractsRedundantAssumptions>
+    <CodeContractsInferRequires>False</CodeContractsInferRequires>
+    <CodeContractsInferEnsures>False</CodeContractsInferEnsures>
+    <CodeContractsInferObjectInvariants>False</CodeContractsInferObjectInvariants>
+    <CodeContractsSuggestAssumptions>False</CodeContractsSuggestAssumptions>
+    <CodeContractsSuggestRequires>True</CodeContractsSuggestRequires>
+    <CodeContractsSuggestEnsures>True</CodeContractsSuggestEnsures>
+    <CodeContractsSuggestObjectInvariants>True</CodeContractsSuggestObjectInvariants>
+    <CodeContractsRunInBackground>True</CodeContractsRunInBackground>
+    <CodeContractsShowSquigglies>True</CodeContractsShowSquigglies>
+    <CodeContractsUseBaseLine>False</CodeContractsUseBaseLine>
+    <CodeContractsEmitXMLDocs>True</CodeContractsEmitXMLDocs>
+    <CodeContractsCustomRewriterAssembly />
+    <CodeContractsCustomRewriterClass />
+    <CodeContractsLibPaths />
+    <CodeContractsExtraRewriteOptions />
+    <CodeContractsExtraAnalysisOptions />
+    <CodeContractsBaseLineFile />
+    <CodeContractsCacheAnalysisResults>True</CodeContractsCacheAnalysisResults>
+    <CodeContractsRuntimeCheckingLevel>Full</CodeContractsRuntimeCheckingLevel>
+    <CodeContractsReferenceAssembly>Build</CodeContractsReferenceAssembly>
+    <CodeContractsAnalysisWarningLevel>0</CodeContractsAnalysisWarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInitializer.cs" />
+    <Compile Include="Bootstrapper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Commands\WeakEventHandlerManager.Desktop.cs" />
+    <Compile Include="Events\DefaultDispatcher.Desktop.cs" />
+    <Compile Include="Modularity\AssemblyResolver.Desktop.cs" />
+    <Compile Include="Modularity\Exceptions\ModuleTypeLoaderNotFoundException.cs" />
+    <Compile Include="Modularity\Exceptions\ModuleTypeLoadingException.cs" />
+    <Compile Include="Modularity\FileModuleTypeLoader.Desktop.cs" />
+    <Compile Include="Modularity\IAssemblyResolver.Desktop.cs" />
+    <Compile Include="Modularity\ModuleAttribute.Desktop.cs" />
+    <Compile Include="Modularity\ModuleCatalog.cs" />
+    <Compile Include="Modularity\ModuleDependencyAttribute.Desktop.cs" />
+    <Compile Include="Modularity\ModuleManager.cs" />
+    <Compile Include="Modularity\ModuleManager.Desktop.cs" />
+    <Compile Include="ObservableObject.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Regions\AllActiveRegion.cs" />
+    <Compile Include="Regions\Behaviors\AutoPopulateRegionBehavior.cs" />
+    <Compile Include="Regions\Behaviors\BindRegionContextToDependencyObjectBehavior.cs" />
+    <Compile Include="Regions\Behaviors\ClearChildViewsRegionBehavior.cs" />
+    <Compile Include="Regions\Behaviors\DelayedRegionCreationBehavior.cs" />
+    <Compile Include="Regions\Behaviors\IHostAwareRegionBehavior.cs" />
+    <Compile Include="Regions\Behaviors\RegionActiveAwareBehavior.cs" />
+    <Compile Include="Regions\Behaviors\RegionCreationException.cs" />
+    <Compile Include="Regions\Behaviors\RegionManagerRegistrationBehavior.cs" />
+    <Compile Include="Regions\Behaviors\RegionMemberLifetimeBehavior.cs" />
+    <Compile Include="Regions\Behaviors\SelectorItemsSourceSyncBehavior.cs" />
+    <Compile Include="Regions\Behaviors\SyncRegionContextWithHostBehavior.cs" />
+    <Compile Include="Regions\ContentControlRegionAdapter.cs" />
+    <Compile Include="Regions\DefaultRegionManagerAccessor.cs" />
+    <Compile Include="Regions\IConfirmNavigationRequest.cs" />
+    <Compile Include="Regions\INavigateAsync.cs" />
+    <Compile Include="Regions\INavigationAware.cs" />
+    <Compile Include="Regions\IRegion.cs" />
+    <Compile Include="Regions\IRegionAdapter.cs" />
+    <Compile Include="Regions\IRegionBehavior.cs" />
+    <Compile Include="Regions\IRegionBehaviorCollection.cs" />
+    <Compile Include="Regions\IRegionBehaviorFactory.cs" />
+    <Compile Include="Regions\IRegionCollection.cs" />
+    <Compile Include="Regions\IRegionManager.cs" />
+    <Compile Include="Regions\IRegionManagerAccessor.cs" />
+    <Compile Include="Regions\IRegionMemberLifetime.cs" />
+    <Compile Include="Regions\IRegionNavigationContentLoader.cs" />
+    <Compile Include="Regions\IRegionNavigationJournal.cs" />
+    <Compile Include="Regions\IRegionNavigationJournalEntry.cs" />
+    <Compile Include="Regions\IRegionNavigationService.cs" />
+    <Compile Include="Regions\IRegionViewRegistry.cs" />
+    <Compile Include="Regions\ItemMetadata.cs" />
+    <Compile Include="Regions\ItemsControlRegionAdapter.cs" />
+    <Compile Include="Regions\IViewsCollection.cs" />
+    <Compile Include="Regions\NavigationAsyncExtensions.cs" />
+    <Compile Include="Regions\NavigationContext.cs" />
+    <Compile Include="Regions\NavigationResult.cs" />
+    <Compile Include="Regions\Region.cs" />
+    <Compile Include="Regions\RegionAdapterBase.cs" />
+    <Compile Include="Regions\RegionAdapterMappings.cs" />
+    <Compile Include="Regions\RegionBehavior.cs" />
+    <Compile Include="Regions\RegionBehaviorCollection.cs" />
+    <Compile Include="Regions\RegionBehaviorFactory.cs" />
+    <Compile Include="Regions\RegionContext.cs" />
+    <Compile Include="Regions\RegionManager.cs" />
+    <Compile Include="Regions\RegionManagerExtensions.cs" />
+    <Compile Include="Regions\RegionMemberLifetimeAttribute.cs" />
+    <Compile Include="Regions\RegionNavigationContentLoader.cs" />
+    <Compile Include="Regions\RegionNavigationEventArgs.cs" />
+    <Compile Include="Regions\RegionNavigationFailedEventArgs.cs" />
+    <Compile Include="Regions\RegionNavigationJournal.cs" />
+    <Compile Include="Regions\RegionNavigationJournalEntry.cs" />
+    <Compile Include="Regions\RegionNavigationService.cs" />
+    <Compile Include="Regions\RegionViewRegistry.cs" />
+    <Compile Include="Regions\SelectorRegionAdapter.cs" />
+    <Compile Include="Regions\SingleActiveRegion.cs" />
+    <Compile Include="Regions\SyncActiveStateAttribute.cs" />
+    <Compile Include="Regions\UpdateRegionsException.cs" />
+    <Compile Include="Regions\ViewRegisteredEventArgs.cs" />
+    <Compile Include="Regions\ViewRegistrationException.cs" />
+    <Compile Include="Regions\ViewsCollection.cs" />
+    <Compile Include="Regions\ViewsCollection.Desktop.cs" />
+    <Compile Include="Regions\ViewSortHintAttribute.cs" />
+    <Compile Include="Properties\ResourceHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\packages\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Properties\Resources.resw">
+      <SubType>Designer</SubType>
+    </PRIResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Prism.Portable\Prism.Portable.csproj">
+      <Project>{875f8e73-22b4-43e1-bd14-957e4fff3d31}</Project>
+      <Name>Prism.Portable</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
+    <VisualStudioVersion>11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>-->
+  <Target Name="AfterBuild">
+    <Exec Command="..\tools\InjectModuleInitializer.exe /m:Microsoft.Practices.Prism.AssemblyInitializer::Run &quot;$(TargetPath)&quot;" />
+  </Target>
+</Project>

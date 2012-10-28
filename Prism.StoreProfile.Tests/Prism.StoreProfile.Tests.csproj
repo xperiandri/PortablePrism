@@ -1,0 +1,280 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{234AA347-4419-49B4-ABF9-631F9EECDB0C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Prism.StoreProfile.Tests</RootNamespace>
+    <AssemblyName>Prism.StoreProfile.Tests</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <PackageCertificateKeyFile>Prism.StoreProfile.Tests_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <CodeContractsAssemblyMode>1</CodeContractsAssemblyMode>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeContractsEnableRuntimeChecking>True</CodeContractsEnableRuntimeChecking>
+    <CodeContractsRuntimeOnlyPublicSurface>False</CodeContractsRuntimeOnlyPublicSurface>
+    <CodeContractsRuntimeThrowOnFailure>True</CodeContractsRuntimeThrowOnFailure>
+    <CodeContractsRuntimeCallSiteRequires>False</CodeContractsRuntimeCallSiteRequires>
+    <CodeContractsRuntimeSkipQuantifiers>False</CodeContractsRuntimeSkipQuantifiers>
+    <CodeContractsRunCodeAnalysis>False</CodeContractsRunCodeAnalysis>
+    <CodeContractsNonNullObligations>False</CodeContractsNonNullObligations>
+    <CodeContractsBoundsObligations>False</CodeContractsBoundsObligations>
+    <CodeContractsArithmeticObligations>False</CodeContractsArithmeticObligations>
+    <CodeContractsEnumObligations>False</CodeContractsEnumObligations>
+    <CodeContractsRedundantAssumptions>False</CodeContractsRedundantAssumptions>
+    <CodeContractsInferRequires>False</CodeContractsInferRequires>
+    <CodeContractsInferEnsures>False</CodeContractsInferEnsures>
+    <CodeContractsInferObjectInvariants>False</CodeContractsInferObjectInvariants>
+    <CodeContractsSuggestAssumptions>False</CodeContractsSuggestAssumptions>
+    <CodeContractsSuggestRequires>True</CodeContractsSuggestRequires>
+    <CodeContractsSuggestEnsures>False</CodeContractsSuggestEnsures>
+    <CodeContractsSuggestObjectInvariants>False</CodeContractsSuggestObjectInvariants>
+    <CodeContractsRunInBackground>True</CodeContractsRunInBackground>
+    <CodeContractsShowSquigglies>True</CodeContractsShowSquigglies>
+    <CodeContractsUseBaseLine>False</CodeContractsUseBaseLine>
+    <CodeContractsEmitXMLDocs>False</CodeContractsEmitXMLDocs>
+    <CodeContractsCustomRewriterAssembly />
+    <CodeContractsCustomRewriterClass />
+    <CodeContractsLibPaths />
+    <CodeContractsExtraRewriteOptions />
+    <CodeContractsExtraAnalysisOptions />
+    <CodeContractsBaseLineFile />
+    <CodeContractsCacheAnalysisResults>True</CodeContractsCacheAnalysisResults>
+    <CodeContractsRuntimeCheckingLevel>Full</CodeContractsRuntimeCheckingLevel>
+    <CodeContractsReferenceAssembly>Build</CodeContractsReferenceAssembly>
+    <CodeContractsAnalysisWarningLevel>0</CodeContractsAnalysisWarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AppXPackage>True</AppXPackage>
+    <AppxPackageIncludePrivateSymbols>true</AppxPackageIncludePrivateSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <!--A reference to the entire .Net Framework and Windows SDK are automatically included-->
+    <SDKReference Include="MSTestFramework, Version=11.0" />
+    <SDKReference Include="TestPlatform, Version=11.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CollectionExtensionsFixture.cs" />
+    <Compile Include="Commands\CompositeCommandFixture.cs" />
+    <Compile Include="Commands\DelegateCommandFixture.cs" />
+    <Compile Include="Events\BackgroundEventSubscriptionFixture.cs" />
+    <Compile Include="Events\CompositePresentationEventFixture.cs" />
+    <Compile Include="Events\DataEventArgsFixture.cs" />
+    <Compile Include="Events\DelegateReferenceFixture.cs" />
+    <Compile Include="Events\DispatcherEventSubscriptionFixture.cs" />
+    <Compile Include="Events\EventAggregatorFixture.cs" />
+    <Compile Include="Events\EventBaseFixture.cs" />
+    <Compile Include="Events\EventSubscriptionFixture.cs" />
+    <Compile Include="Events\SubscriptionTokenFixture.cs" />
+    <Compile Include="ExceptionExtensionsFixture.cs" />
+    <Compile Include="ListDictionaryFixture.cs" />
+    <Compile Include="Logging\EmptyLoggerFixture.cs" />
+    <Compile Include="Mocks\MockAsyncModuleTypeLoader.cs" />
+    <Compile Include="Mocks\MockClickableObject.cs" />
+    <Compile Include="Mocks\MockCommand.cs" />
+    <Compile Include="Mocks\MockContainerAdapter.cs" />
+    <Compile Include="Mocks\MockDelegateReference.cs" />
+    <Compile Include="Mocks\MockDependencyObject.cs" />
+    <Compile Include="Mocks\MockHostAwareRegionBehavior.cs" />
+    <Compile Include="Mocks\MockLogger.cs" />
+    <Compile Include="Mocks\MockModuleTypeLoader.cs" />
+    <Compile Include="Mocks\MockPresentationRegion.cs" />
+    <Compile Include="Mocks\MockRegion.cs" />
+    <Compile Include="Mocks\MockRegionAdapter.cs" />
+    <Compile Include="Mocks\MockRegionBehavior.cs" />
+    <Compile Include="Mocks\MockRegionBehaviorCollection.cs" />
+    <Compile Include="Mocks\MockRegionManager.cs" />
+    <Compile Include="Mocks\MockRegionManagerAccessor.cs" />
+    <Compile Include="Mocks\MockServiceLocator.cs" />
+    <Compile Include="Mocks\MockSortableViews.cs" />
+    <Compile Include="Mocks\MockViewsCollection.cs" />
+    <Compile Include="Mocks\Modules\MockAbstractModule.cs" />
+    <Compile Include="Mocks\Modules\MockAttributedModule.cs" />
+    <Compile Include="Mocks\Modules\MockDependantModule.cs" />
+    <Compile Include="Mocks\Modules\MockDependencyModule.cs" />
+    <Compile Include="Mocks\Modules\MockModuleA.cs" />
+    <Compile Include="Mocks\Modules\MockModuleReferencedAssembly.cs" />
+    <Compile Include="Mocks\Modules\MockModuleReferencingAssembly.cs" />
+    <Compile Include="Mocks\Modules\MockModuleReferencingOtherModule.cs" />
+    <Compile Include="Mocks\Modules\MockModuleThrowingException.cs" />
+    <Compile Include="Mocks\Modules\MockStartupLoadedAttributedModule.cs" />
+    <Compile Include="ModleInitializerFixture.cs" />
+    <Compile Include="Modularity\ModuleAttributeFixture.Desktop.cs" />
+    <Compile Include="Modularity\ModuleCatalogFixture.cs" />
+    <Compile Include="Modularity\ModuleDependencySolverFixture.cs" />
+    <Compile Include="Modularity\ModuleInfoGroupExtensionsFixture.cs" />
+    <Compile Include="Modularity\ModuleInfoGroupFixture.cs" />
+    <Compile Include="Modularity\ModuleInitializerFixture.cs" />
+    <Compile Include="Modularity\ModuleManagerFixture.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Regions\AllActiveRegionFixture.cs" />
+    <Compile Include="Regions\Behaviors\AutoPopulateRegionBehaviorFixture.cs" />
+    <Compile Include="Regions\Behaviors\BindRegionContextToDependencyObjectBehaviorFixture.cs" />
+    <Compile Include="Regions\Behaviors\ClearChildViewsRegionBehaviorFixture.cs" />
+    <Compile Include="Regions\Behaviors\DelayedRegionCreationBehaviorFixture.cs" />
+    <Compile Include="Regions\Behaviors\RegionManagerRegistrationBehaviorFixture.cs" />
+    <Compile Include="Regions\Behaviors\SelectorItemsSourceSyncRegionBehaviorFixture.cs" />
+    <Compile Include="Regions\Behaviors\SyncRegionContextWithHostBehaviorFixture.cs" />
+    <Compile Include="Regions\ContentControlRegionAdapterFixture.cs" />
+    <Compile Include="Regions\ItemsControlRegionAdapterFixture.cs" />
+    <Compile Include="Regions\RegionAdapterBaseFixture.cs" />
+    <Compile Include="Regions\RegionAdapterMappingsFixture.cs" />
+    <Compile Include="Regions\RegionBehaviorCollectionFixture.cs" />
+    <Compile Include="Regions\RegionBehaviorFactoryFixture.cs" />
+    <Compile Include="Regions\RegionBehaviorFixture.cs" />
+    <Compile Include="Regions\RegionManagerExtensionsFixture.cs" />
+    <Compile Include="Regions\RegionManagerFixture.cs" />
+    <Compile Include="Regions\RegionViewRegistryFixture.cs" />
+    <Compile Include="Regions\SelectorRegionAdapterFixture.cs" />
+    <Compile Include="Regions\SingleActiveRegionFixture.cs" />
+    <Compile Include="Regions\ViewsCollectionFixture.cs" />
+    <Compile Include="ResourceHelperInitializer.cs" />
+    <Compile Include="ServiceLocatorExtensionsFixture.cs" />
+    <Compile Include="UriQueryFixture.cs" />
+    <Compile Include="ViewModel\ErrorsContainerFixture.cs" />
+    <Compile Include="ViewModel\NotificationObjectFixture.cs" />
+    <Compile Include="ViewModel\PropertySupportFixture.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+    <None Include="Prism.StoreProfile.Tests_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\UnitTestLogo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\UnitTestSmallLogo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\UnitTestSplashScreen.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\UnitTestStoreLogo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Modularity\NotAValidDotNetDll.txt.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Prism.Portable\Prism.Portable.csproj">
+      <Project>{875f8e73-22b4-43e1-bd14-957e4fff3d31}</Project>
+      <Name>Prism.Portable</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Prism.StoreProfile.TestSupport\Prism.StoreProfile.TestSupport.csproj">
+      <Project>{361becfe-54b9-4e12-898b-f1e8a4437a07}</Project>
+      <Name>Prism.StoreProfile.TestSupport</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Prism.StoreProfile\Prism.StoreProfile.csproj">
+      <Project>{b68f4655-5644-47e1-99bb-154f1feba0e2}</Project>
+      <Name>Prism.StoreProfile</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
+    <VisualStudioVersion>11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>  
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

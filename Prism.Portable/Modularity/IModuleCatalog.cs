@@ -1,0 +1,107 @@
+using System;
+//===================================================================================
+// Microsoft patterns & practices
+// Composite Application Guidance for Windows Presentation Foundation and Silverlight
+//===================================================================================
+// Copyright (c) Microsoft Corporation.  All rights reserved.
+// THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
+// FITNESS FOR A PARTICULAR PURPOSE.
+//===================================================================================
+// The example companies, organizations, products, domain names,
+// e-mail addresses, logos, people, places, and events depicted
+// herein are fictitious.  No association with any real company,
+// organization, product, domain name, email address, logo, person,
+// places, or events is intended or should be inferred.
+//===================================================================================
+using System.Collections.Generic;
+using System.Diagnostics.Contracts;
+
+namespace Microsoft.Practices.Prism.Modularity
+{
+    /// <summary>
+    /// This is the expected catalog definition for the ModuleManager. 
+    /// The ModuleCatalog holds information about the modules that can be used by the 
+    /// application. Each module is described in a ModuleInfo class, that records the 
+    /// name, type and location of the module. 
+    /// </summary>
+    [ContractClass(typeof(IModuleCatalogContract))]
+    public interface IModuleCatalog
+    {
+        /// <summary>
+        /// Gets all the <see cref="ModuleInfo"/> classes that are in the <see cref="ModuleCatalog"/>.
+        /// </summary>
+        IEnumerable<ModuleInfo> Modules { get; }
+
+        /// <summary>
+        /// Return the list of <see cref="ModuleInfo"/>s that <paramref name="moduleInfo"/> depends on.
+        /// </summary>
+        /// <param name="moduleInfo">The <see cref="ModuleInfo"/> to get the </param>
+        /// <returns>An enumeration of <see cref="ModuleInfo"/> that <paramref name="moduleInfo"/> depends on.</returns>
+        IEnumerable<ModuleInfo> GetDependentModules(ModuleInfo moduleInfo);
+
+        /// <summary>
+        /// Returns the collection of <see cref="ModuleInfo"/>s that contain both the <see cref="ModuleInfo"/>s in 
+        /// <paramref name="modules"/>, but also all the modules they depend on. 
+        /// </summary>
+        /// <param name="modules">The modules to get the dependencies for.</param>
+        /// <returns>
+        /// A collection of <see cref="ModuleInfo"/> that contains both all <see cref="ModuleInfo"/>s in <paramref name="modules"/>
+        /// and also all the <see cref="ModuleInfo"/> they depend on.
+        /// </returns>
+        IEnumerable<ModuleInfo> CompleteListWithDependencies(IEnumerable<ModuleInfo> modules);
+
+        /// <summary>
+        /// Initializes the catalog, which may load and validate the modules.
+        /// </summary>
+        void Initialize();
+
+        /// <summary>
+        /// Adds a <see cref="ModuleInfo"/> to the <see cref="ModuleCatalog"/>.
+        /// </summary>
+        /// <param name="moduleInfo">The <see cref="ModuleInfo"/> to add.</param>
+        /// <returns>The <see cref="ModuleCatalog"/> for easily adding multiple modules.</returns>
+        void AddModule(ModuleInfo moduleInfo);
+    }
+
+    /// <summary>
+    /// Defines contract for IModuleCatalog interface
+    /// </summary>
+    [ContractClassFor(typeof(IModuleCatalog))]
+    internal abstract class IModuleCatalogContract : IModuleCatalog
+    {
+        public IEnumerable<ModuleInfo> Modules
+        {
+            get
+            {
+                Contract.Ensures(Contract.Result<IEnumerable<ModuleInfo>>() != null);
+                throw new NotImplementedException();
+            }
+        }
+
+        public IEnumerable<ModuleInfo> GetDependentModules(ModuleInfo moduleInfo)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<ModuleInfo> CompleteListWithDependencies(IEnumerable<ModuleInfo> modules)
+        {
+            if (modules == null) throw new ArgumentNullException("modules");
+            Contract.EndContractBlock();
+            throw new NotImplementedException();
+        }
+
+        public void Initialize()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddModule(ModuleInfo moduleInfo)
+        {
+            if (moduleInfo == null) throw new ArgumentNullException("moduleInfo");
+            Contract.EndContractBlock();
+            throw new NotImplementedException();
+        }
+    }
+}
