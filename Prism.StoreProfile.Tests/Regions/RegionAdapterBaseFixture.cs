@@ -14,11 +14,13 @@
 // organization, product, domain name, email address, logo, person,
 // places, or events is intended or should be inferred.
 //===================================================================================
+
 using System;
 using Microsoft.Practices.Prism.Tests.Mocks;
 using Microsoft.Practices.Prism.Regions;
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 using Prism.StoreProfile.TestSupport;
+using System.Threading.Tasks;
 
 namespace Microsoft.Practices.Prism.Tests.Regions
 {
@@ -26,7 +28,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions
     public class RegionAdapterBaseFixture : UIFixtureBase
     {
         [TestMethod]
-        public async void IncorrectTypeThrows()
+        public async Task IncorrectTypeThrows()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -36,7 +38,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions
         }
 
         [TestMethod]
-        public async void InitializeSetsRegionName()
+        public async Task InitializeSetsRegionName()
         {
             await ExecuteOnUIThread(() =>
                 {

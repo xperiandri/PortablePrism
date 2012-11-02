@@ -17,6 +17,7 @@
 using Microsoft.Practices.Prism.Regions;
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 using Prism.StoreProfile.TestSupport;
+using System.Threading.Tasks;
 
 namespace Microsoft.Practices.Prism.Tests.Regions
 {
@@ -24,7 +25,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions
     public class SingleActiveRegionFixture : UIFixtureBase
     {
         [TestMethod]
-        public async void ActivatingNewViewDeactivatesCurrent()
+        public async Task ActivatingNewViewDeactivatesCurrent()
         {
             await ExecuteOnUIThread(() =>
                 {

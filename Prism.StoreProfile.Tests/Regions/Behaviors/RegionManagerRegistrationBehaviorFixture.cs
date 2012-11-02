@@ -14,6 +14,7 @@
 // organization, product, domain name, email address, logo, person,
 // places, or events is intended or should be inferred.
 //===================================================================================
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -23,6 +24,7 @@ using Microsoft.Practices.Prism.Regions;
 using Microsoft.Practices.Prism.Regions.Behaviors;
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 using Prism.StoreProfile.TestSupport;
+using System.Threading.Tasks;
 
 namespace Microsoft.Practices.Prism.Tests.Regions.Behaviors
 {
@@ -30,7 +32,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions.Behaviors
     public class RegionManagerRegistrationBehaviorFixture : UIFixtureBase
     {
         [TestMethod]
-        public async void ShouldRegisterRegionIfRegionManagerIsSet()
+        public async Task ShouldRegisterRegionIfRegionManagerIsSet()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -56,7 +58,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions.Behaviors
         }
 
         [TestMethod]
-        public async void DoesNotFailIfRegionManagerIsNotSet()
+        public async Task DoesNotFailIfRegionManagerIsNotSet()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -74,7 +76,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions.Behaviors
         }
 
         [TestMethod]
-        public async void RegionGetsAddedInRegionManagerWhenAddedIntoAScopeAndAccessingRegions()
+        public async Task RegionGetsAddedInRegionManagerWhenAddedIntoAScopeAndAccessingRegions()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -105,7 +107,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions.Behaviors
         }
 
         [TestMethod]
-        public async void RegionDoesNotGetAddedTwiceWhenUpdatingRegions()
+        public async Task RegionDoesNotGetAddedTwiceWhenUpdatingRegions()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -140,7 +142,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions.Behaviors
         }
 
         [TestMethod]
-        public async void RegionGetsRemovedFromRegionManagerWhenRemovedFromScope()
+        public async Task RegionGetsRemovedFromRegionManagerWhenRemovedFromScope()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -174,7 +176,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions.Behaviors
         }
 
         [TestMethod]
-        public async void CanAttachBeforeSettingName()
+        public async Task CanAttachBeforeSettingName()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -203,7 +205,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions.Behaviors
         }
 
         [TestMethod]
-        public async void HostControlSetAfterAttachThrows()
+        public async Task HostControlSetAfterAttachThrows()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -217,7 +219,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions.Behaviors
         }
 
         [TestMethod]
-        public async void BehaviorDoesNotPreventRegionManagerFromBeingGarbageCollected()
+        public async Task BehaviorDoesNotPreventRegionManagerFromBeingGarbageCollected()
         {
             await ExecuteOnUIThread(() =>
                 {

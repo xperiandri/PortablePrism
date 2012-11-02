@@ -22,6 +22,7 @@ using System.Windows;
 using Microsoft.Practices.ServiceLocation;
 using Windows.UI.Xaml;
 using Microsoft.Practices.Prism.Properties;
+using System.Diagnostics.Contracts;
 
 namespace Microsoft.Practices.Prism.Regions
 {
@@ -32,7 +33,7 @@ namespace Microsoft.Practices.Prism.Regions
     {
         private readonly IServiceLocator serviceLocator;
         private readonly IRegionNavigationContentLoader regionNavigationContentLoader;
-        private IRegionNavigationJournal journal;
+        private readonly IRegionNavigationJournal journal;
         private NavigationContext currentNavigationContext;
 
         /// <summary>
@@ -43,20 +44,10 @@ namespace Microsoft.Practices.Prism.Regions
         /// <param name="journal">The journal.</param>
         public RegionNavigationService(IServiceLocator serviceLocator, IRegionNavigationContentLoader regionNavigationContentLoader, IRegionNavigationJournal journal)
         {
-            if (serviceLocator == null)
-            {
-                throw new ArgumentNullException("serviceLocator");
-            }
-
-            if (regionNavigationContentLoader == null)
-            {
-                throw new ArgumentNullException("regionNavigationContentLoader");
-            }
-
-            if (journal == null)
-            {
-                throw new ArgumentNullException("journal");
-            }
+            if (serviceLocator == null) throw new ArgumentNullException("serviceLocator");
+            if (regionNavigationContentLoader == null) throw new ArgumentNullException("regionNavigationContentLoader");
+            if (journal == null) throw new ArgumentNullException("journal");
+            Contract.EndContractBlock();
 
             this.serviceLocator = serviceLocator;
             this.regionNavigationContentLoader = regionNavigationContentLoader;
@@ -129,7 +120,8 @@ namespace Microsoft.Practices.Prism.Regions
         [SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes", Justification = "Exception is marshalled to callback")]
         public void RequestNavigate(Uri target, Action<NavigationResult> navigationCallback)
         {
-            if (navigationCallback == null) throw new ArgumentNullException("navigationCallback");
+            //if (navigationCallback == null) throw new ArgumentNullException("navigationCallback");
+            //Contract.EndContractBlock();
 
             try
             {
@@ -143,15 +135,9 @@ namespace Microsoft.Practices.Prism.Regions
 
         private void DoNavigate(Uri source, Action<NavigationResult> navigationCallback)
         {
-            if (source == null)
-            {
-                throw new ArgumentNullException("source");
-            }
-
-            if (this.Region == null)
-            {
-                throw new InvalidOperationException(ResourceHelper.NavigationServiceHasNoRegion);
-            }
+            if (source == null) throw new ArgumentNullException("source");
+            if (this.Region == null) throw new InvalidOperationException(ResourceHelper.NavigationServiceHasNoRegion);
+            Contract.EndContractBlock();
 
             this.currentNavigationContext = new NavigationContext(this, source);
 

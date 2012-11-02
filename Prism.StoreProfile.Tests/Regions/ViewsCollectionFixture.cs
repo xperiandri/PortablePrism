@@ -1,9 +1,3 @@
-using Microsoft.Practices.Prism.Regions;
-using Microsoft.Practices.Prism.Tests.Mocks;
-using Microsoft.Practices.Prism.TestSupport;
-using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
-using Prism.StoreProfile.TestSupport;
-
 //===================================================================================
 // Microsoft patterns & practices
 // Composite Application Guidance for Windows Presentation Foundation and Silverlight
@@ -20,12 +14,19 @@ using Prism.StoreProfile.TestSupport;
 // organization, product, domain name, email address, logo, person,
 // places, or events is intended or should be inferred.
 //===================================================================================
+
+using Microsoft.Practices.Prism.Regions;
+using Microsoft.Practices.Prism.Tests.Mocks;
+using Microsoft.Practices.Prism.TestSupport;
+using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
+using Prism.StoreProfile.TestSupport;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Linq;
+using System.Threading.Tasks;
 using Windows.UI.Xaml.Data;
 
 namespace Microsoft.Practices.Prism.Tests.Regions
@@ -34,7 +35,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions
     public class ViewsCollectionFixture : UIFixtureBase
     {
         [TestMethod]
-        public async void CanWrapCollectionCollection()
+        public async Task CanWrapCollectionCollection()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -51,7 +52,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions
         }
 
         [TestMethod]
-        public async void CanFilterCollection()
+        public async Task CanFilterCollection()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -71,7 +72,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions
         }
 
         [TestMethod]
-        public async void RaisesCollectionChangedWhenFilteredCollectionChanges()
+        public async Task RaisesCollectionChangedWhenFilteredCollectionChanges()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -87,7 +88,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions
         }
 
         [TestMethod]
-        public async void RaisesCollectionChangedWithAddAndRemoveWhenFilteredCollectionChanges()
+        public async Task RaisesCollectionChangedWithAddAndRemoveWhenFilteredCollectionChanges()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -120,7 +121,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions
         }
 
         [TestMethod]
-        public async void DoesNotRaiseCollectionChangedWhenAddingOrRemovingFilteredOutObject()
+        public async Task DoesNotRaiseCollectionChangedWhenAddingOrRemovingFilteredOutObject()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -138,7 +139,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions
         }
 
         [TestMethod]
-        public async void CollectionChangedPassesWrappedItemInArgumentsWhenAdding()
+        public async Task CollectionChangedPassesWrappedItemInArgumentsWhenAdding()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -158,7 +159,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions
         }
 
         [TestMethod]
-        public async void CollectionChangedPassesWrappedItemInArgumentsWhenRemoving()
+        public async Task CollectionChangedPassesWrappedItemInArgumentsWhenRemoving()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -177,7 +178,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions
         }
 
         [TestMethod]
-        public async void EnumeratesWrappedItems()
+        public async Task EnumeratesWrappedItems()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -195,7 +196,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions
         }
 
         [TestMethod]
-        public async void ChangingMetadataOnItemAddsOrRemovesItFromTheFilteredCollection()
+        public async Task ChangingMetadataOnItemAddsOrRemovesItFromTheFilteredCollection()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -238,7 +239,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions
         }
 
         [TestMethod]
-        public async void AddingToOriginalCollectionFiresAddCollectionChangeEvent()
+        public async Task AddingToOriginalCollectionFiresAddCollectionChangeEvent()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -254,7 +255,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions
         }
 
         [TestMethod]
-        public async void AddingToOriginalCollectionFiresResetNotificationIfSortComparisonSet()
+        public async Task AddingToOriginalCollectionFiresResetNotificationIfSortComparisonSet()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -280,7 +281,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions
         }
 
         [TestMethod]
-        public async void OnAddNotifyCollectionChangedThenIndexProvided()
+        public async Task OnAddNotifyCollectionChangedThenIndexProvided()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -297,7 +298,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions
         }
 
         [TestMethod]
-        public async void OnRemoveNotifyCollectionChangedThenIndexProvided()
+        public async Task OnRemoveNotifyCollectionChangedThenIndexProvided()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -317,7 +318,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions
         }
 
         [TestMethod]
-        public async void OnRemoveOfFilterMatchingItemThenViewCollectionRelativeIndexProvided()
+        public async Task OnRemoveOfFilterMatchingItemThenViewCollectionRelativeIndexProvided()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -337,7 +338,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions
         }
 
         [TestMethod]
-        public async void RemovingFromFilteredCollectionDoesNotThrow()
+        public async Task RemovingFromFilteredCollectionDoesNotThrow()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -362,7 +363,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions
         }
 
         [TestMethod]
-        public async void ViewsCollectionSortedAfterAddingItemToOriginalCollection()
+        public async Task ViewsCollectionSortedAfterAddingItemToOriginalCollection()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -387,7 +388,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions
         }
 
         [TestMethod]
-        public async void ChangingSortComparisonCausesResortingOfCollection()
+        public async Task ChangingSortComparisonCausesResortingOfCollection()
         {
             await ExecuteOnUIThread(() =>
                 {

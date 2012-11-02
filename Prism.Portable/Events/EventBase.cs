@@ -30,6 +30,18 @@ namespace Microsoft.Practices.Prism.Events
         private readonly List<IEventSubscription> _subscriptions = new List<IEventSubscription>();
 
         /// <summary>
+        /// Gets if dispatcher is initialized for EventBase class or not
+        /// </summary>
+        public static bool IsDispatcherInitialized
+        {
+            get
+            {
+                return uiDispatcher != null;
+            }
+        }
+        
+
+        /// <summary>
         /// Gets the <see cref="Dispatcher"/> that is bound to the UI elements.
         /// </summary>
         /// <value>The <see cref="Dispatcher"/> to use when subscribing using <see cref="ThreadOption.UIThread"/>.</value>
@@ -54,8 +66,14 @@ namespace Microsoft.Practices.Prism.Events
             get { return _subscriptions; }
         }
 
+        /// <summary>
+        /// Initializes Dispatcher.
+        /// </summary>
+        /// <remarks>Can be run only once.</remarks>
+        /// <param name="dispatcher"></param>
         public static void InitializeDispatcher(Lazy<IDispatcherFacade> dispatcher)
         {
+            Contract.Requires<InvalidOperationException>(IsDispatcherInitialized);
             uiDispatcher = dispatcher;
         }
 

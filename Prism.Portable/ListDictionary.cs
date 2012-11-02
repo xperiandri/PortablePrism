@@ -16,6 +16,7 @@
 //===================================================================================
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 
 namespace Microsoft.Practices.Prism
 {
@@ -26,7 +27,7 @@ namespace Microsoft.Practices.Prism
     /// <typeparam name="TValue">The type of the value held by lists.</typeparam>
     public sealed class ListDictionary<TKey, TValue> : IDictionary<TKey, IList<TValue>>
     {
-        Dictionary<TKey, IList<TValue>> innerValues = new Dictionary<TKey, IList<TValue>>();
+        private Dictionary<TKey, IList<TValue>> innerValues = new Dictionary<TKey, IList<TValue>>();
 
         #region Public Methods
 
@@ -36,26 +37,23 @@ namespace Microsoft.Practices.Prism
         /// <param name="key">The key of the list that will hold the value.</param>
         public void Add(TKey key)
         {
-            if (key == null)
-                throw new ArgumentNullException("key");
+            if (key == null) throw new ArgumentNullException("key");
+            Contract.EndContractBlock();
 
             CreateNewList(key);
         }
 
         /// <summary>
-        /// Adds a value to a list with the given key. If a list does not already exist, 
+        /// Adds a value to a list with the given key. If a list does not already exist,
         /// it will be created automatically.
         /// </summary>
         /// <param name="key">The key of the list that will hold the value.</param>
         /// <param name="value">The value to add to the list under the given key.</param>
         public void Add(TKey key, TValue value)
         {
-            if (key == null)
-
-                throw new ArgumentNullException("key");
-            if (value == null)
-
-                throw new ArgumentNullException("value");
+            if (key == null) throw new ArgumentNullException("key");
+            if (value == null) throw new ArgumentNullException("value");
+            Contract.EndContractBlock();
 
             if (innerValues.ContainsKey(key))
             {
@@ -109,14 +107,11 @@ namespace Microsoft.Practices.Prism
         /// <returns>true if the dictionary contains the given key; otherwise, false.</returns>
         public bool ContainsKey(TKey key)
         {
-            if (key == null)
-                throw new ArgumentNullException("key");
-
             return innerValues.ContainsKey(key);
         }
 
         /// <summary>
-        /// Retrieves the all the elements from the list which have a key that matches the condition 
+        /// Retrieves the all the elements from the list which have a key that matches the condition
         /// defined by the specified predicate.
         /// </summary>
         /// <param name="keyFilter">The filter with the condition to use to filter lists by their key.</param>
@@ -161,9 +156,6 @@ namespace Microsoft.Practices.Prism
         /// <returns><see langword="true" /> if the element was removed.</returns>
         public bool Remove(TKey key)
         {
-            if (key == null)
-                throw new ArgumentNullException("key");
-
             return innerValues.Remove(key);
         }
 
@@ -174,19 +166,17 @@ namespace Microsoft.Practices.Prism
         /// <param name="value">The value to remove.</param>
         public void Remove(TKey key, TValue value)
         {
-            if (key == null)
-                throw new ArgumentNullException("key");
-
-            if (value == null)
-                throw new ArgumentNullException("value");
+            if (key == null) throw new ArgumentNullException("key");
+            if (value == null) throw new ArgumentNullException("value");
+            Contract.EndContractBlock();
 
             if (innerValues.ContainsKey(key))
             {
                 List<TValue> innerList = (List<TValue>)innerValues[key];
                 innerList.RemoveAll(delegate(TValue item)
-                                               {
-                                                   return value.Equals(item);
-                                               });
+                                    {
+                                        return value.Equals(item);
+                                    });
             }
         }
 
@@ -202,7 +192,7 @@ namespace Microsoft.Practices.Prism
             }
         }
 
-        #endregion
+        #endregion Public Methods
 
         #region Properties
 
@@ -234,7 +224,7 @@ namespace Microsoft.Practices.Prism
         }
 
         /// <summary>
-        /// Gets or sets the list associated with the given key. The 
+        /// Gets or sets the list associated with the given key. The
         /// access always succeeds, eventually returning an empty list.
         /// </summary>
         /// <param name="key">The key of the list to access.</param>
@@ -261,7 +251,7 @@ namespace Microsoft.Practices.Prism
             get { return innerValues.Count; }
         }
 
-        #endregion
+        #endregion Properties
 
         #region IDictionary<TKey,List<TValue>> Members
 
@@ -270,11 +260,8 @@ namespace Microsoft.Practices.Prism
         /// </summary>
         void IDictionary<TKey, IList<TValue>>.Add(TKey key, IList<TValue> value)
         {
-            if (key == null)
-                throw new ArgumentNullException("key");
-
-            if (value == null)
-                throw new ArgumentNullException("value");
+            if (key == null) throw new ArgumentNullException("key");
+            if (value == null) throw new ArgumentNullException("value");
 
             innerValues.Add(key, value);
         }
@@ -296,7 +283,7 @@ namespace Microsoft.Practices.Prism
             get { return innerValues.Values; }
         }
 
-        #endregion
+        #endregion IDictionary<TKey,List<TValue>> Members
 
         #region ICollection<KeyValuePair<TKey,List<TValue>>> Members
 
@@ -340,7 +327,7 @@ namespace Microsoft.Practices.Prism
             return ((ICollection<KeyValuePair<TKey, IList<TValue>>>)innerValues).Remove(item);
         }
 
-        #endregion
+        #endregion ICollection<KeyValuePair<TKey,List<TValue>>> Members
 
         #region IEnumerable<KeyValuePair<TKey,List<TValue>>> Members
 
@@ -352,7 +339,7 @@ namespace Microsoft.Practices.Prism
             return innerValues.GetEnumerator();
         }
 
-        #endregion
+        #endregion IEnumerable<KeyValuePair<TKey,List<TValue>>> Members
 
         #region IEnumerable Members
 
@@ -364,6 +351,6 @@ namespace Microsoft.Practices.Prism
             return innerValues.GetEnumerator();
         }
 
-        #endregion
+        #endregion IEnumerable Members
     }
 }

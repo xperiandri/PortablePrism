@@ -87,8 +87,7 @@ namespace Microsoft.Practices.Prism.Modularity
 
         public IEnumerable<ModuleInfo> CompleteListWithDependencies(IEnumerable<ModuleInfo> modules)
         {
-            if (modules == null) throw new ArgumentNullException("modules");
-            Contract.EndContractBlock();
+            Contract.Requires<ArgumentNullException>(modules != null);
             throw new NotImplementedException();
         }
 
@@ -99,8 +98,7 @@ namespace Microsoft.Practices.Prism.Modularity
 
         public void AddModule(ModuleInfo moduleInfo)
         {
-            if (moduleInfo == null) throw new ArgumentNullException("moduleInfo");
-            Contract.EndContractBlock();
+            Contract.Requires<ArgumentNullException>(moduleInfo != null);
             throw new NotImplementedException();
         }
     }

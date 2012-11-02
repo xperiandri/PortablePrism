@@ -61,16 +61,14 @@ namespace Microsoft.Practices.Prism.Modularity
     {
         public bool CanLoadModuleType(ModuleInfo moduleInfo)
         {
-            if (moduleInfo == null) throw new ArgumentNullException("moduleInfo");
-            Contract.EndContractBlock();
-
-            return true;
+            Contract.Requires<ArgumentNullException>(moduleInfo != null);
+            throw new NotImplementedException();
         }
 
         public void LoadModuleType(ModuleInfo moduleInfo)
         {
-            if (moduleInfo == null) throw new ArgumentNullException("moduleInfo");
-            Contract.EndContractBlock();
+            Contract.Requires<ArgumentNullException>(moduleInfo != null);
+            throw new NotImplementedException();
         }
 
         public event EventHandler<ModuleDownloadProgressChangedEventArgs> ModuleDownloadProgressChanged { add { } remove { } }

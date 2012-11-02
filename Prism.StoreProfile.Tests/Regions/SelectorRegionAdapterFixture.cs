@@ -1,9 +1,3 @@
-using Microsoft.Practices.Prism.Regions;
-using Microsoft.Practices.Prism.Regions.Behaviors;
-using Microsoft.Practices.Prism.Tests.Mocks;
-using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
-using Prism.StoreProfile.TestSupport;
-
 //===================================================================================
 // Microsoft patterns & practices
 // Composite Application Guidance for Windows Presentation Foundation and Silverlight
@@ -20,10 +14,17 @@ using Prism.StoreProfile.TestSupport;
 // organization, product, domain name, email address, logo, person,
 // places, or events is intended or should be inferred.
 //===================================================================================
+
+using Microsoft.Practices.Prism.Regions;
+using Microsoft.Practices.Prism.Regions.Behaviors;
+using Microsoft.Practices.Prism.Tests.Mocks;
+using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
+using Prism.StoreProfile.TestSupport;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Data;
 
@@ -33,7 +34,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions
     public class SelectorRegionAdapterFixture : UIFixtureBase
     {
         [TestMethod]
-        public async void AdapterAddsSelectorItemsSourceSyncBehavior()
+        public async Task AdapterAddsSelectorItemsSourceSyncBehavior()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -48,7 +49,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions
         }
 
         [TestMethod]
-        public async void AdapterDoesNotPreventRegionFromBeingGarbageCollected()
+        public async Task AdapterDoesNotPreventRegionFromBeingGarbageCollected()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -75,7 +76,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions
         }
 
         [TestMethod]
-        public async void ActivatingTheViewShouldUpdateTheSelectedItem()
+        public async Task ActivatingTheViewShouldUpdateTheSelectedItem()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -102,7 +103,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions
         }
 
         [TestMethod]
-        public async void DeactivatingTheSelectedViewShouldUpdateTheSelectedItem()
+        public async Task DeactivatingTheSelectedViewShouldUpdateTheSelectedItem()
         {
             await ExecuteOnUIThread(() =>
                 {

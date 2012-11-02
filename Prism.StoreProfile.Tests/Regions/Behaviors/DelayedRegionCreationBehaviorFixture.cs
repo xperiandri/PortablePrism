@@ -1,9 +1,3 @@
-using Microsoft.Practices.Prism.Regions;
-using Microsoft.Practices.Prism.Regions.Behaviors;
-using Microsoft.Practices.Prism.Tests.Mocks;
-using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
-using Prism.StoreProfile.TestSupport;
-
 //===================================================================================
 // Microsoft patterns & practices
 // Composite Application Guidance for Windows Presentation Foundation and Silverlight
@@ -20,9 +14,16 @@ using Prism.StoreProfile.TestSupport;
 // organization, product, domain name, email address, logo, person,
 // places, or events is intended or should be inferred.
 //===================================================================================
+
+using Microsoft.Practices.Prism.Regions;
+using Microsoft.Practices.Prism.Regions.Behaviors;
+using Microsoft.Practices.Prism.Tests.Mocks;
+using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
+using Prism.StoreProfile.TestSupport;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -45,7 +46,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions.Behaviors
         }
 
         [TestMethod]
-        public async void RegionWillNotGetCreatedTwiceWhenThereAreMoreRegions()
+        public async Task RegionWillNotGetCreatedTwiceWhenThereAreMoreRegions()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -74,7 +75,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions.Behaviors
         }
 
         [TestMethod]
-        public async void RegionGetsCreatedWhenAccessingRegions()
+        public async Task RegionGetsCreatedWhenAccessingRegions()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -96,7 +97,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions.Behaviors
         }
 
         [TestMethod]
-        public async void RegionDoesNotGetCreatedTwiceWhenUpdatingRegions()
+        public async Task RegionDoesNotGetCreatedTwiceWhenUpdatingRegions()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -119,7 +120,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions.Behaviors
         }
 
         [TestMethod]
-        public async void BehaviorDoesNotPreventControlFromBeingGarbageCollected()
+        public async Task BehaviorDoesNotPreventControlFromBeingGarbageCollected()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -145,7 +146,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions.Behaviors
         }
 
         [TestMethod]
-        public async void BehaviorDoesNotPreventControlFromBeingGarbageCollectedWhenRegionWasCreated()
+        public async Task BehaviorDoesNotPreventControlFromBeingGarbageCollectedWhenRegionWasCreated()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -172,7 +173,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions.Behaviors
         }
 
         [TestMethod]
-        public async void BehaviorShouldUnhookEventWhenDetaching()
+        public async Task BehaviorShouldUnhookEventWhenDetaching()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -194,7 +195,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions.Behaviors
         }
 
         [TestMethod]
-        public async void ShouldCleanupBehaviorOnceRegionIsCreated()
+        public async Task ShouldCleanupBehaviorOnceRegionIsCreated()
         {
             await ExecuteOnUIThread(() =>
                 {

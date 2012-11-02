@@ -14,11 +14,13 @@
 // organization, product, domain name, email address, logo, person,
 // places, or events is intended or should be inferred.
 //===================================================================================
+
 using Microsoft.Practices.Prism.Tests.Mocks;
 using Microsoft.Practices.Prism.Regions;
 using Microsoft.Practices.Prism.Regions.Behaviors;
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 using Prism.StoreProfile.TestSupport;
+using System.Threading.Tasks;
 
 namespace Microsoft.Practices.Prism.Tests.Regions.Behaviors
 {
@@ -26,7 +28,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions.Behaviors
     public class BindRegionContextToDependencyObjectBehaviorFixture : UIFixtureBase
     {
         [TestMethod]
-        public async void ShouldSetRegionContextOnAddedView()
+        public async Task ShouldSetRegionContextOnAddedView()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -46,7 +48,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions.Behaviors
         }
 
         [TestMethod]
-        public async void ShouldSetRegionContextOnAlreadyAddedViews()
+        public async Task ShouldSetRegionContextOnAlreadyAddedViews()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -66,7 +68,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions.Behaviors
         }
 
         [TestMethod]
-        public async void ShouldRemoveContextToViewRemovedFromRegion()
+        public async Task ShouldRemoveContextToViewRemovedFromRegion()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -86,7 +88,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions.Behaviors
         }
 
         [TestMethod]
-        public async void ShouldSetRegionContextOnContextChange()
+        public async Task ShouldSetRegionContextOnContextChange()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -107,7 +109,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions.Behaviors
         }
 
         [TestMethod]
-        public async void WhenAViewIsRemovedFromARegion_ThenRegionContextIsNotClearedInRegion()
+        public async Task WhenAViewIsRemovedFromARegion_ThenRegionContextIsNotClearedInRegion()
         {
             await ExecuteOnUIThread(() =>
                 {

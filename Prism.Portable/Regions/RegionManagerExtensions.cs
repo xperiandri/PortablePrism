@@ -42,7 +42,7 @@ namespace Microsoft.Practices.Prism.Regions
             if (!regionManager.Regions.ContainsRegionWithName(regionName))
             {
                 throw new ArgumentException(
-                    string.Format(CultureInfo.CurrentCulture, ResourceHelper.RegionNotFound, regionName), "regionName");
+                    string.Format(CultureInfo.CurrentCulture, Resources.RegionNotFound, regionName), "regionName");
             }
 
             IRegion region = regionManager.Regions[regionName];
@@ -101,7 +101,7 @@ namespace Microsoft.Practices.Prism.Regions
 
             if (region.Name != null && region.Name != regionName)
             {
-                throw new ArgumentException(string.Format(CultureInfo.CurrentCulture, ResourceHelper.RegionManagerWithDifferentNameException, region.Name, regionName), "regionName");
+                throw new ArgumentException(string.Format(CultureInfo.CurrentCulture, Resources.RegionManagerWithDifferentNameException, region.Name, regionName), "regionName");
             }
 
             if (region.Name == null)

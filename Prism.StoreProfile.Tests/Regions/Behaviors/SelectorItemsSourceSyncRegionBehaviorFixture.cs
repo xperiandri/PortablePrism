@@ -1,9 +1,3 @@
-using Microsoft.Practices.Prism.Regions;
-using Microsoft.Practices.Prism.Regions.Behaviors;
-using Microsoft.Practices.Prism.Tests.Mocks;
-using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
-using Prism.StoreProfile.TestSupport;
-
 //===================================================================================
 // Microsoft patterns & practices
 // Composite Application Guidance for Windows Presentation Foundation and Silverlight
@@ -20,9 +14,16 @@ using Prism.StoreProfile.TestSupport;
 // organization, product, domain name, email address, logo, person,
 // places, or events is intended or should be inferred.
 //===================================================================================
+
+using Microsoft.Practices.Prism.Regions;
+using Microsoft.Practices.Prism.Regions.Behaviors;
+using Microsoft.Practices.Prism.Tests.Mocks;
+using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
+using Prism.StoreProfile.TestSupport;
 using System;
 using System.Collections;
 using System.Linq;
+using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -34,7 +35,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions.Behaviors
     public class SelectorItemsSourceSyncRegionBehaviorFixture : UIFixtureBase
     {
         [TestMethod]
-        public async void CanAttachToSelector()
+        public async Task CanAttachToSelector()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -46,7 +47,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions.Behaviors
         }
 
         [TestMethod]
-        public async void AttachSetsItemsSourceOfSelector()
+        public async Task AttachSetsItemsSourceOfSelector()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -65,7 +66,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions.Behaviors
         }
 
         [TestMethod]
-        public async void IfViewsHaveSortHintThenViewsAreProperlySorted()
+        public async Task IfViewsHaveSortHintThenViewsAreProperlySorted()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -89,7 +90,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions.Behaviors
         }
 
         [TestMethod]
-        public async void SelectionChangedShouldChangeActiveViews()
+        public async Task SelectionChangedShouldChangeActiveViews()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -140,7 +141,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions.Behaviors
         }
 
         [TestMethod]
-        public async void ItemsSourceSetThrows()
+        public async Task ItemsSourceSetThrows()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -155,7 +156,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions.Behaviors
 #if !SILVERLIGHT
 
         [TestMethod]
-        public async void ControlWithExistingBindingOnItemsSourceWithNullValueThrows()
+        public async Task ControlWithExistingBindingOnItemsSourceWithNullValueThrows()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -177,7 +178,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions.Behaviors
 #endif
 
         [TestMethod]
-        public async void AddingViewToTwoRegionsThrows()
+        public async Task AddingViewToTwoRegionsThrows()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -194,11 +195,10 @@ namespace Microsoft.Practices.Prism.Tests.Regions.Behaviors
         }
 
         [TestMethod]
-        public async void ReactivatingViewAddsViewToTab()
+        public async Task ReactivatingViewAddsViewToTab()
         {
             await ExecuteOnUIThread(() =>
                 {
-
                     var behavior1 = CreateBehavior();
                     behavior1.Attach();
 
@@ -223,7 +223,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions.Behaviors
 
         // This test can only run in WPF, because the silverlight listbox doesn't support multi selection mode.
         [TestMethod]
-        public async void ShouldAllowMultipleSelectedItemsForListBox()
+        public async Task ShouldAllowMultipleSelectedItemsForListBox()
         {
             await ExecuteOnUIThread(() =>
                 {

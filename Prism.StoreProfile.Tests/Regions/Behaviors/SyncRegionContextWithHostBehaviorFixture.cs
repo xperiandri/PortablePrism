@@ -14,6 +14,7 @@
 // organization, product, domain name, email address, logo, person,
 // places, or events is intended or should be inferred.
 //===================================================================================
+
 using System;
 using Windows.UI.Xaml;
 using Microsoft.Practices.Prism.Tests.Mocks;
@@ -22,6 +23,7 @@ using Microsoft.Practices.Prism.Regions;
 using Microsoft.Practices.Prism.Regions.Behaviors;
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 using Prism.StoreProfile.TestSupport;
+using System.Threading.Tasks;
 
 namespace Microsoft.Practices.Prism.Tests.Regions.Behaviors
 {
@@ -29,7 +31,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions.Behaviors
     public class SyncRegionContextWithHostBehaviorFixture : UIFixtureBase
     {
         [TestMethod]
-        public async void ShouldForwardRegionContextValueToHostControl()
+        public async Task ShouldForwardRegionContextValueToHostControl()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -48,7 +50,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions.Behaviors
         }
 
         [TestMethod]
-        public async void ShouldUpdateHostControlRegionContextValueWhenContextOfRegionChanges()
+        public async Task ShouldUpdateHostControlRegionContextValueWhenContextOfRegionChanges()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -69,7 +71,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions.Behaviors
         }
 
         [TestMethod]
-        public async void ShouldGetInitialValueFromHostAndSetOnRegion()
+        public async Task ShouldGetInitialValueFromHostAndSetOnRegion()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -107,7 +109,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions.Behaviors
         }
 
         [TestMethod]
-        public async void ChangingRegionContextObservableObjectValueShouldAlsoChangeRegionContextDependencyProperty()
+        public async Task ChangingRegionContextObservableObjectValueShouldAlsoChangeRegionContextDependencyProperty()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -127,7 +129,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions.Behaviors
         }
 
         [TestMethod]
-        public async void AttachShouldChangeRegionContextDependencyProperty()
+        public async Task AttachShouldChangeRegionContextDependencyProperty()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -146,7 +148,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions.Behaviors
         }
 
         [TestMethod]
-        public async void SettingHostControlAfterAttachThrows()
+        public async Task SettingHostControlAfterAttachThrows()
         {
             await ExecuteOnUIThread(() =>
                 {

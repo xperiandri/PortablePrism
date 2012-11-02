@@ -295,6 +295,11 @@ namespace Microsoft.Practices.Prism.Modularity
             this.Remove((ModuleInfo)value);
         }
 
+        void IList.RemoveAt(int index)
+        {
+            this.RemoveAt(index);
+        }
+
         /// <summary>
         /// Removes the <see cref="T:System.Collections.Generic.IList`1"/> item at the specified index.
         /// </summary>

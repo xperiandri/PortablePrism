@@ -53,14 +53,14 @@ namespace Microsoft.Practices.Prism.Regions
         /// <param name="behaviorType">Type of the behavior to add.</param>
         public void AddIfMissing(string behaviorKey, Type behaviorType)
         {
-            if (behaviorKey == null) throw new ArgumentNullException("behaviorKey");
-            if (behaviorType == null) throw new ArgumentNullException("behaviorType");
+            //if (behaviorKey == null) throw new ArgumentNullException("behaviorKey");
+            //if (behaviorType == null) throw new ArgumentNullException("behaviorType");
 
             // Check if the type is a IRegionBehavior
-            if (!typeof(IRegionBehavior).GetTypeInfo().IsAssignableFrom(behaviorType.GetTypeInfo()))
+            if (!typeof(IRegionBehavior).IsAssignableFrom(behaviorType))
                 throw new ArgumentException(
-                    string.Format(CultureInfo.CurrentCulture, ResourceHelper.CanOnlyAddTypesThatInheritIFromRegionBehavior, behaviorType.Name), "behaviorType");
-            Contract.EndContractBlock();
+                    string.Format(CultureInfo.CurrentCulture, Resources.CanOnlyAddTypesThatInheritIFromRegionBehavior, behaviorType.Name), "behaviorType");
+            //Contract.EndContractBlock();
 
             // Only add the behaviorKey if it doesn't already exists.
             if (this.registeredBehaviors.ContainsKey(behaviorKey))
@@ -80,8 +80,8 @@ namespace Microsoft.Practices.Prism.Regions
         {
             if (!this.ContainsKey(key))
                 throw new ArgumentException(
-                    string.Format(CultureInfo.CurrentCulture, ResourceHelper.TypeWithKeyNotRegistered, key), "key");
-            Contract.EndContractBlock();
+                    string.Format(CultureInfo.CurrentCulture, Resources.TypeWithKeyNotRegistered, key), "key");
+            //Contract.EndContractBlock();
 
             return (IRegionBehavior)this.serviceLocator.GetInstance(this.registeredBehaviors[key]);
         }

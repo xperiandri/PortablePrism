@@ -1,10 +1,12 @@
 ﻿using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Prism.Events;
+using Microsoft.Practices.Prism.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.ApplicationModel;
 
 namespace Microsoft.Practices.Prism
 {
@@ -14,6 +16,7 @@ namespace Microsoft.Practices.Prism
         {
             InitializeCompositePresentationEvent();
             InitializeWeakEventHandlerManager();
+            InitializeDesignModeAccessor();
         }
 
         private static void InitializeCompositePresentationEvent()
@@ -25,6 +28,11 @@ namespace Microsoft.Practices.Prism
         private static void InitializeWeakEventHandlerManager()
         {
             EventHandlerManager.Current = new WeakEventHandlerManager();
+        }
+
+        private static void InitializeDesignModeAccessor()
+        {
+            ViewModelBase.SetDesignModeAccessor(() => DesignMode.DesignModeEnabled);
         }
     }
 }

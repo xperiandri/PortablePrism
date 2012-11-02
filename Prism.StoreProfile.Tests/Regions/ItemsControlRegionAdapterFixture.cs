@@ -1,8 +1,3 @@
-using Microsoft.Practices.Prism.Regions;
-using Microsoft.Practices.Prism.Tests.Mocks;
-using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
-using Prism.StoreProfile.TestSupport;
-
 //===================================================================================
 // Microsoft patterns & practices
 // Composite Application Guidance for Windows Presentation Foundation and Silverlight
@@ -19,10 +14,16 @@ using Prism.StoreProfile.TestSupport;
 // organization, product, domain name, email address, logo, person,
 // places, or events is intended or should be inferred.
 //===================================================================================
+
+using Microsoft.Practices.Prism.Regions;
+using Microsoft.Practices.Prism.Tests.Mocks;
+using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
+using Prism.StoreProfile.TestSupport;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Data;
@@ -33,7 +34,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions
     public class ItemsControlRegionAdapterFixture : UIFixtureBase
     {
         [TestMethod]
-        public async void AdapterAssociatesItemsControlWithRegion()
+        public async Task AdapterAssociatesItemsControlWithRegion()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -48,7 +49,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions
         }
 
         [TestMethod]
-        public async void AdapterAssignsARegionThatHasAllViewsActive()
+        public async Task AdapterAssignsARegionThatHasAllViewsActive()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -62,7 +63,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions
         }
 
         [TestMethod]
-        public async void ShouldMoveAlreadyExistingContentInControlToRegion()
+        public async Task ShouldMoveAlreadyExistingContentInControlToRegion()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -80,7 +81,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions
         }
 
         [TestMethod]
-        public async void ControlWithExistingItemSourceThrows()
+        public async Task ControlWithExistingItemSourceThrows()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -97,7 +98,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions
 #if !SILVERLIGHT
 
         [TestMethod]
-        public async void ControlWithExistingBindingOnItemsSourceWithNullValueThrows()
+        public async Task ControlWithExistingBindingOnItemsSourceWithNullValueThrows()
         {
             await ExecuteOnUIThread(() =>
                 {

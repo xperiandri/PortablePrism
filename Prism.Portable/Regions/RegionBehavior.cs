@@ -39,7 +39,7 @@ namespace Microsoft.Practices.Prism.Regions
             {
                 if (this.IsAttached)
                 {
-                    throw new InvalidOperationException(ResourceHelper.RegionBehaviorRegionCannotBeSetAfterAttach);
+                    throw new InvalidOperationException(Resources.RegionBehaviorRegionCannotBeSetAfterAttach);
                 }
 
                 this.region = value;
@@ -58,7 +58,7 @@ namespace Microsoft.Practices.Prism.Regions
         {
             if (this.region == null)
             {
-                throw new InvalidOperationException(ResourceHelper.RegionBehaviorAttachCannotBeCallWithNullRegion);
+                throw new InvalidOperationException(Resources.RegionBehaviorAttachCannotBeCallWithNullRegion);
             }
 
             IsAttached = true;

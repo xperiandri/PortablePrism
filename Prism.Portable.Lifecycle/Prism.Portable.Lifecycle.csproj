@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{875F8E73-22B4-43E1-BD14-957E4FFF3D31}</ProjectGuid>
+    <ProjectGuid>{300F2BB2-2793-4382-AD1B-4BC13C138892}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Microsoft.Practices.Prism</RootNamespace>
-    <AssemblyName>Microsoft.Practices.Prism</AssemblyName>
+    <RootNamespace>Microsoft.Practices.Prism.Lifecycle</RootNamespace>
+    <AssemblyName>Microsoft.Practices.Prism.Lifecycle</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Profile158</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
@@ -45,7 +45,7 @@
     <CodeContractsRunInBackground>True</CodeContractsRunInBackground>
     <CodeContractsShowSquigglies>True</CodeContractsShowSquigglies>
     <CodeContractsUseBaseLine>False</CodeContractsUseBaseLine>
-    <CodeContractsEmitXMLDocs>True</CodeContractsEmitXMLDocs>
+    <CodeContractsEmitXMLDocs>False</CodeContractsEmitXMLDocs>
     <CodeContractsCustomRewriterAssembly />
     <CodeContractsCustomRewriterClass />
     <CodeContractsLibPaths />
@@ -98,118 +98,15 @@
     <CodeContractsAnalysisWarningLevel>0</CodeContractsAnalysisWarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="CollectionExtensions.cs" />
-    <Compile Include="Commands\CompositeCommand.cs" />
-    <Compile Include="Commands\DelegateCommand.cs" />
-    <Compile Include="Commands\DelegateCommandBase.cs" />
-    <Compile Include="Commands\EventHandlerManager.cs" />
-    <Compile Include="ContractAbbreviatorAttribute .cs" />
-    <Compile Include="Events\BackgroundEventSubscription.cs" />
-    <Compile Include="Events\CompositePresentationEvent.cs" />
-    <Compile Include="Events\DataEventArgs.cs" />
-    <Compile Include="Events\DelegateReference.cs" />
-    <Compile Include="Events\DispatcherEventSubscription.cs" />
-    <Compile Include="Events\EventAggregator.cs" />
-    <Compile Include="Events\EventBase.cs" />
-    <Compile Include="Events\EventSubscription.cs" />
-    <Compile Include="Events\IDelegateReference.cs" />
-    <Compile Include="Events\IDispatcherFacade.cs" />
-    <Compile Include="Events\IEventAggregator.cs" />
-    <Compile Include="Events\IEventSubscription.cs" />
-    <Compile Include="Events\SubscriptionToken.cs" />
-    <Compile Include="Events\ThreadOption.cs" />
-    <Compile Include="Events\WeakDelegatesManager.cs" />
-    <Compile Include="ExceptionExtensions.cs" />
-    <Compile Include="IActiveAware.cs" />
-    <Compile Include="Modularity\Exceptions\CyclicDependencyFoundException.cs" />
-    <Compile Include="Modularity\Exceptions\DuplicateModuleException.cs" />
-    <Compile Include="Modularity\Exceptions\ModularityException.cs" />
-    <Compile Include="Modularity\Exceptions\ModuleInitializeException.cs" />
-    <Compile Include="Modularity\Exceptions\ModuleNotFoundException.cs" />
-    <Compile Include="Modularity\IModuleCatalogItem.cs" />
-    <Compile Include="ListDictionary.cs" />
-    <Compile Include="Logging\Category.cs" />
-    <Compile Include="Logging\EmptyLogger.cs" />
-    <Compile Include="Logging\ILoggerFacade.cs" />
-    <Compile Include="Logging\Priority.cs" />
-    <Compile Include="Logging\TextLogger.cs" />
-    <Compile Include="Modularity\IModule.cs" />
-    <Compile Include="Modularity\IModuleCatalog.cs" />
-    <Compile Include="Modularity\IModuleInitializer.cs" />
-    <Compile Include="Modularity\IModuleManager.cs" />
-    <Compile Include="Modularity\IModuleTypeLoader.cs" />
-    <Compile Include="Modularity\InitializationMode.cs" />
-    <Compile Include="Modularity\LoadModuleCompletedEventArgs.cs" />
-    <Compile Include="Modularity\ModuleDependencySolver.cs" />
-    <Compile Include="Modularity\ModuleDownloadProgressChangedEventArgs.cs" />
-    <Compile Include="Modularity\ModuleInfo.cs" />
-    <Compile Include="Modularity\ModuleInfoGroup.cs" />
-    <Compile Include="Modularity\ModuleInfoGroupExtensions.cs" />
-    <Compile Include="Modularity\ModuleInitializer.cs" />
-    <Compile Include="Modularity\ModuleState.cs" />
+    <!-- A reference to the entire .NET Framework is automatically included -->
+    <ProjectReference Include="..\Prism.Portable\Prism.Portable.csproj">
+      <Project>{875f8e73-22b4-43e1-bd14-957e4fff3d31}</Project>
+      <Name>Prism.Portable</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ILifetimeAware.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Regions\Behaviors\AutoPopulateRegionBehavior.cs" />
-    <Compile Include="Regions\Behaviors\RegionCreationException.cs" />
-    <Compile Include="Regions\IConfirmNavigationRequest.cs" />
-    <Compile Include="Regions\INavigateAsync.cs" />
-    <Compile Include="Regions\INavigationAware.cs" />
-    <Compile Include="Regions\IRegion.cs" />
-    <Compile Include="Regions\IRegionAdapter.cs" />
-    <Compile Include="Regions\IRegionBehavior.cs" />
-    <Compile Include="Regions\IRegionBehaviorCollection.cs" />
-    <Compile Include="Regions\IRegionBehaviorFactory.cs" />
-    <Compile Include="Regions\IRegionCollection.cs" />
-    <Compile Include="Regions\IRegionManager.cs" />
-    <Compile Include="Regions\IRegionMemberLifetime.cs" />
-    <Compile Include="Regions\IRegionNavigationContentLoader.cs" />
-    <Compile Include="Regions\IRegionNavigationJournal.cs" />
-    <Compile Include="Regions\IRegionNavigationJournalEntry.cs" />
-    <Compile Include="Regions\IRegionNavigationService.cs" />
-    <Compile Include="Regions\IRegionViewRegistry.cs" />
-    <Compile Include="Regions\IViewsCollection.cs" />
-    <Compile Include="Regions\NavigationAsyncExtensions.cs" />
-    <Compile Include="Regions\NavigationContext.cs" />
-    <Compile Include="Regions\NavigationResult.cs" />
-    <Compile Include="Regions\RegionAdapterMappings.cs" />
-    <Compile Include="Regions\RegionBehavior.cs" />
-    <Compile Include="Regions\RegionBehaviorCollection.cs" />
-    <Compile Include="Regions\RegionBehaviorFactory.cs" />
-    <Compile Include="Regions\RegionManagerExtensions.cs" />
-    <Compile Include="Regions\RegionMemberLifetimeAttribute.cs" />
-    <Compile Include="Regions\RegionNavigationEventArgs.cs" />
-    <Compile Include="Regions\RegionNavigationFailedEventArgs.cs" />
-    <Compile Include="Regions\RegionNavigationJournal.cs" />
-    <Compile Include="Regions\RegionNavigationJournalEntry.cs" />
-    <Compile Include="Regions\RegionViewRegistry.cs" />
-    <Compile Include="Regions\SyncActiveStateAttribute.cs" />
-    <Compile Include="Regions\UpdateRegionsException.cs" />
-    <Compile Include="Regions\ViewRegisteredEventArgs.cs" />
-    <Compile Include="Regions\ViewRegistrationException.cs" />
-    <Compile Include="Regions\ViewSortHintAttribute.cs" />
-    <Compile Include="ServiceLocatorExtensions.cs" />
-    <Compile Include="UriParsingHelper.cs" />
-    <Compile Include="UriQuery.cs" />
-    <Compile Include="ViewModel\ErrorsContainer.cs" />
-    <Compile Include="ViewModel\NotificationObject.cs" />
-    <Compile Include="ViewModel\PropertySupport.cs" />
-    <Compile Include="ViewModel\ViewModelBase.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="Microsoft.Practices.ServiceLocation">
-      <HintPath>..\packages\Microsoft.Practices.ServiceLocation.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

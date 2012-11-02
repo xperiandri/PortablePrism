@@ -35,12 +35,11 @@ namespace Microsoft.Practices.Prism.Modularity
     /// Defines contrct for IModuleInitializer interface
     /// </summary>
     [ContractClassFor(typeof(IModuleInitializer))]
-    internal sealed class IModuleInitializerContract : IModuleInitializer
+    internal abstract class IModuleInitializerContract : IModuleInitializer
     {
         public void Initialize(ModuleInfo moduleInfo)
         {
-            if (moduleInfo == null) throw new ArgumentNullException("moduleInfo");
-            Contract.EndContractBlock();
+            Contract.Requires<ArgumentNullException>(moduleInfo != null);
             throw new NotImplementedException();
         }
     }

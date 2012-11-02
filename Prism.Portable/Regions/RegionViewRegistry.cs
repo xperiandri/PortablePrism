@@ -117,7 +117,7 @@ namespace Microsoft.Practices.Prism.Regions
                 }
 
                 throw new ViewRegistrationException(string.Format(CultureInfo.CurrentCulture,
-                    ResourceHelper.OnViewRegisteredException, e.RegionName, rootException), ex.InnerException);
+                    Resources.OnViewRegisteredException, e.RegionName, rootException), ex.InnerException);
             }
         }
     }

@@ -14,6 +14,7 @@
 // organization, product, domain name, email address, logo, person,
 // places, or events is intended or should be inferred.
 //===================================================================================
+
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -21,6 +22,7 @@ using Microsoft.Practices.Prism.Regions;
 using Microsoft.Practices.Prism.Tests.Mocks;
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 using Prism.StoreProfile.TestSupport;
+using System.Threading.Tasks;
 
 namespace Microsoft.Practices.Prism.Tests.Regions
 {
@@ -150,7 +152,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions
 
 
         [TestMethod]
-        public async void ShouldSetObservableRegionContextWhenRegionContextChanges()
+        public async Task ShouldSetObservableRegionContextWhenRegionContextChanges()
         {
             await ExecuteOnUIThread(() =>
                 {

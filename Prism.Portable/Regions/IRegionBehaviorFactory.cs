@@ -29,7 +29,7 @@ namespace Microsoft.Practices.Prism.Regions
     /// be added to the <see cref="IRegionBehaviorCollection"/>s of all <see cref="IRegion"/>s, unless overridden on a 'per-region' basis. 
     /// </summary>
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix", Justification = "It is more of a factory than a collection")]
-    //[ContractClass(typeof(IRegionBehaviorFactoryContract))]
+    [ContractClass(typeof(IRegionBehaviorFactoryContract))]
     public interface IRegionBehaviorFactory : IEnumerable<string>
     {
         /// <summary>
@@ -56,43 +56,39 @@ namespace Microsoft.Practices.Prism.Regions
         IRegionBehavior CreateFromKey(string key);
     }
 
-    //[ContractClassFor(typeof(IRegionBehaviorFactory))]
-    //internal abstract class IRegionBehaviorFactoryContract : IRegionBehaviorFactory
-    //{
-    //    public void AddIfMissing(string behaviorKey, Type behaviorType)
-    //    {
-    //        if (behaviorKey == null) throw new ArgumentNullException("behaviorKey");
-    //        if (behaviorType == null) throw new ArgumentNullException("behaviorType");
-    //        // Check if the type is a IRegionBehavior
-    //        if (!typeof(IRegionBehavior).GetTypeInfo().IsAssignableFrom(behaviorType.GetTypeInfo()))
-    //            throw new ArgumentException(
-    //                string.Format(CultureInfo.CurrentCulture, ResourceHelper.CanOnlyAddTypesThatInheritIFromRegionBehavior, behaviorType.Name), "behaviorType");
-    //        Contract.EndContractBlock();
+    [ContractClassFor(typeof(IRegionBehaviorFactory))]
+    internal abstract class IRegionBehaviorFactoryContract : IRegionBehaviorFactory
+    {
+        public void AddIfMissing(string behaviorKey, Type behaviorType)
+        {
+            Contract.Requires<ArgumentNullException>(behaviorKey != null);
+            Contract.Requires<ArgumentNullException>(behaviorType != null);
+            //// Check if the type is a IRegionBehavior
+            //Contract.Requires<ArgumentException>(typeof(IRegionBehavior).IsAssignableFrom(behaviorType),
+            //    string.Format(CultureInfo.CurrentCulture, Resources.CanOnlyAddTypesThatInheritIFromRegionBehavior, behaviorType.Name));
+            throw new NotImplementedException();
+        }
 
-    //    }
+        public bool ContainsKey(string behaviorKey)
+        {
+            throw new NotImplementedException();
+        }
 
-    //    public bool ContainsKey(string behaviorKey)
-    //    {
-    //        throw new NotImplementedException();
-    //    }
+        public IRegionBehavior CreateFromKey(string key)
+        {
+            //Contract.Requires<ArgumentException>(this.ContainsKey(key),
+            //    string.Format(CultureInfo.CurrentCulture, Resources.TypeWithKeyNotRegistered, key));
+            throw new NotImplementedException();
+        }
 
-    //    public IRegionBehavior CreateFromKey(string key)
-    //    {
-    //        if (!this.ContainsKey(key))
-    //            throw new ArgumentException(
-    //                string.Format(CultureInfo.CurrentCulture, ResourceHelper.TypeWithKeyNotRegistered, key), "key");
-    //        Contract.EndContractBlock();
-    //        return null;
-    //    }
+        public IEnumerator<string> GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
 
-    //    public IEnumerator<string> GetEnumerator()
-    //    {
-    //        throw new NotImplementedException();
-    //    }
-
-    //    System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
-    //    {
-    //        throw new NotImplementedException();
-    //    }
-    //}
+        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

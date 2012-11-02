@@ -44,7 +44,7 @@ namespace Microsoft.Practices.Prism.Tests.ViewModel
         [TestMethod]
         public void NotificationObjectShouldBeDataContractSerializable()
         {
-            var serializer = new System.Runtime.Serialization.DataContractSerializer(typeof (TestNotificationObject));
+            var serializer = new DataContractSerializer(typeof(TestNotificationObject));
             var stream = new System.IO.MemoryStream();
 
             var testObject = new TestNotificationObject();

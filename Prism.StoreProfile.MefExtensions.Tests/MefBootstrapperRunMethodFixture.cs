@@ -2,7 +2,6 @@ using Microsoft.Practices.Prism.Logging;
 using Microsoft.Practices.Prism.MefExtensions;
 using Microsoft.Practices.Prism.Regions;
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
-
 //===================================================================================
 // Microsoft patterns & practices
 // Composite Application Guidance for Windows Presentation Foundation and Silverlight
@@ -21,6 +20,7 @@ using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 //===================================================================================
 using System.Collections.Generic;
 using System.Composition;
+using System.Threading.Tasks;
 using System.Windows;
 using Windows.UI.Xaml.Controls;
 
@@ -157,7 +157,7 @@ namespace Microsoft.Practices.Prism.MefExtensions.Tests
         }
 
         [TestMethod]
-        public async void RunShouldCallInitializeShellWhenShellSucessfullyCreated()
+        public async Task RunShouldCallInitializeShellWhenShellSucessfullyCreated()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -192,7 +192,7 @@ namespace Microsoft.Practices.Prism.MefExtensions.Tests
         }
 
         [TestMethod]
-        public async void RunShouldAssignRegionManagerToReturnedShell()
+        public async Task RunShouldAssignRegionManagerToReturnedShell()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -305,7 +305,7 @@ namespace Microsoft.Practices.Prism.MefExtensions.Tests
         }
 
         [TestMethod]
-        public async void RunShouldLogAboutSettingTheRegionManager()
+        public async Task RunShouldLogAboutSettingTheRegionManager()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -319,7 +319,7 @@ namespace Microsoft.Practices.Prism.MefExtensions.Tests
         }
 
         [TestMethod]
-        public async void RunShouldLogAboutUpdatingRegions()
+        public async Task RunShouldLogAboutUpdatingRegions()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -343,7 +343,7 @@ namespace Microsoft.Practices.Prism.MefExtensions.Tests
         }
 
         [TestMethod]
-        public async void RunShouldLogAboutInitializingTheShellIfShellCreated()
+        public async Task RunShouldLogAboutInitializingTheShellIfShellCreated()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -387,7 +387,7 @@ namespace Microsoft.Practices.Prism.MefExtensions.Tests
         }
 
         [TestMethod]
-        public async void RunShouldCallTheMethodsInOrder()
+        public async Task RunShouldCallTheMethodsInOrder()
         {
             await ExecuteOnUIThread(() =>
                 {

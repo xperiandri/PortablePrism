@@ -15,6 +15,7 @@
 // places, or events is intended or should be inferred.
 //===================================================================================
 using System;
+using System.Diagnostics.Contracts;
 
 namespace Microsoft.Practices.Prism.Regions
 {
@@ -25,6 +26,7 @@ namespace Microsoft.Practices.Prism.Regions
     /// Convenience overloads for the methods in this interface can be found as extension methods on the 
     /// <see cref="NavigationAsyncExtensions"/> class.
     /// </remarks>
+    [ContractClass(typeof(INavigateAsyncContract))]
     public interface INavigateAsync
     {
         /// <summary>
@@ -37,5 +39,15 @@ namespace Microsoft.Practices.Prism.Regions
         /// <see cref="NavigationAsyncExtensions"/> class.
         /// </remarks>
         void RequestNavigate(Uri target, Action<NavigationResult> navigationCallback);
+    }
+
+    [ContractClassFor(typeof(INavigateAsync))]
+    internal abstract  class INavigateAsyncContract : INavigateAsync
+    {
+        public void RequestNavigate(Uri target, Action<NavigationResult> navigationCallback)
+        {
+            Contract.Requires<ArgumentNullException>(navigationCallback != null);
+            throw new NotImplementedException();
+        }
     }
 }

@@ -21,6 +21,7 @@ using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 using Prism.StoreProfile.TestSupport;
 using System;
 using System.Linq;
+using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Data;
@@ -31,7 +32,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions
     public class ContentControlRegionAdapterFixture : UIFixtureBase
     {
         [TestMethod]
-        public async void AdapterAssociatesSelectorWithRegionActiveViews()
+        public async Task AdapterAssociatesSelectorWithRegionActiveViews()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -59,7 +60,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions
         }
 
         [TestMethod]
-        public async void ControlWithExistingContentThrows()
+        public async Task ControlWithExistingContentThrows()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -76,7 +77,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions
 #if !SILVERLIGHT
 
         [TestMethod]
-        public async void ControlWithExistingBindingOnContentWithNullValueThrows()
+        public async Task ControlWithExistingBindingOnContentWithNullValueThrows()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -99,7 +100,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions
 #endif
 
         [TestMethod]
-        public async void AddedItemShouldBeActivated()
+        public async Task AddedItemShouldBeActivated()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -117,7 +118,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions
         }
 
         [TestMethod]
-        public async void ShouldNotActivateAdditionalViewsAdded()
+        public async Task ShouldNotActivateAdditionalViewsAdded()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -136,7 +137,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions
         }
 
         [TestMethod]
-        public async void ShouldActivateAddedViewWhenNoneIsActive()
+        public async Task ShouldActivateAddedViewWhenNoneIsActive()
         {
             await ExecuteOnUIThread(() =>
                 {
@@ -158,7 +159,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions
         }
 
         [TestMethod]
-        public async void CanRemoveViewWhenNoneActive()
+        public async Task CanRemoveViewWhenNoneActive()
         {
             await ExecuteOnUIThread(() =>
                 {

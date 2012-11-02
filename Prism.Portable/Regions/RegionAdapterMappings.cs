@@ -17,6 +17,7 @@ using Microsoft.Practices.Prism.Properties;
 //===================================================================================
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Globalization;
 using System.Reflection;
 
@@ -38,20 +39,14 @@ namespace Microsoft.Practices.Prism.Regions
         /// <exception cref="InvalidOperationException">If a mapping for <paramref name="controlType"/> already exists.</exception>
         public void RegisterMapping(Type controlType, IRegionAdapter adapter)
         {
-            if (controlType == null)
-            {
-                throw new ArgumentNullException("controlType");
-            }
-
-            if (adapter == null)
-            {
-                throw new ArgumentNullException("adapter");
-            }
+            if (controlType == null) throw new ArgumentNullException("controlType");
+            if (adapter == null) throw new ArgumentNullException("adapter");
+            Contract.EndContractBlock();
 
             if (mappings.ContainsKey(controlType))
             {
                 throw new InvalidOperationException(String.Format(CultureInfo.CurrentCulture,
-                                                                  ResourceHelper.MappingExistsException, controlType.Name));
+                                                                  Resources.MappingExistsException, controlType.Name));
             }
 
             mappings.Add(controlType, adapter);
@@ -78,9 +73,9 @@ namespace Microsoft.Practices.Prism.Regions
                 {
                     return mappings[currentType];
                 }
-                currentType = currentType.GetTypeInfo().BaseType;
+                currentType = currentType.BaseType;
             }
-            throw new KeyNotFoundException(String.Format(CultureInfo.CurrentCulture, ResourceHelper.NoRegionAdapterException, controlType));
+            throw new KeyNotFoundException(String.Format(CultureInfo.CurrentCulture, Resources.NoRegionAdapterException, controlType));
         }
     }
 }

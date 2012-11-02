@@ -1,7 +1,3 @@
-using Microsoft.Practices.Prism;
-using Microsoft.Practices.Prism.Commands;
-using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
-
 //===================================================================================
 // Microsoft patterns & practices
 // Composite Application Guidance for Windows Presentation Foundation and Silverlight
@@ -18,6 +14,10 @@ using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 // organization, product, domain name, email address, logo, person,
 // places, or events is intended or should be inferred.
 //===================================================================================
+
+using Microsoft.Practices.Prism;
+using Microsoft.Practices.Prism.Commands;
+using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 using System;
 using System.Windows.Input;
 using Windows.UI.Xaml.Input;
@@ -502,7 +502,7 @@ namespace Microsoft.Practices.Prism.Tests.Commands
     internal class TestableCompositeCommand : CompositeCommand
     {
         public bool CanExecuteChangedRaised;
-        private EventHandler handler;
+        private readonly EventHandler handler;
 
         public TestableCompositeCommand()
         {

@@ -14,11 +14,13 @@
 // organization, product, domain name, email address, logo, person,
 // places, or events is intended or should be inferred.
 //===================================================================================
+
 using Microsoft.Practices.Prism.Regions;
 using Microsoft.Practices.Prism.Regions.Behaviors;
 using Microsoft.Practices.Prism.Tests.Mocks;
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 using Prism.StoreProfile.TestSupport;
+using System.Threading.Tasks;
 
 namespace Microsoft.Practices.Prism.Tests.Regions.Behaviors
 {
@@ -26,17 +28,15 @@ namespace Microsoft.Practices.Prism.Tests.Regions.Behaviors
     public class ClearChildViewsRegionBehaviorFixture : UIFixtureBase
     {
         [TestMethod]
-        public async void WhenClearChildViewsPropertyIsNotSet_ThenChildViewsRegionManagerIsNotCleared()
+        public async Task WhenClearChildViewsPropertyIsNotSet_ThenChildViewsRegionManagerIsNotCleared()
         {
             await ExecuteOnUIThread(() =>
                 {
                     var regionManager = new MockRegionManager();
 
-                    var region = new Region();
-                    region.RegionManager = regionManager;
+                    var region = new Region() { RegionManager = regionManager };
 
-                    var behavior = new ClearChildViewsRegionBehavior();
-                    behavior.Region = region;
+                    var behavior = new ClearChildViewsRegionBehavior() { Region = region };
                     behavior.Attach();
 
                     var childView = new MockFrameworkElement();
@@ -51,17 +51,15 @@ namespace Microsoft.Practices.Prism.Tests.Regions.Behaviors
         }
 
         [TestMethod]
-        public async void WhenClearChildViewsPropertyIsTrue_ThenChildViewsRegionManagerIsCleared()
+        public async Task WhenClearChildViewsPropertyIsTrue_ThenChildViewsRegionManagerIsCleared()
         {
             await ExecuteOnUIThread(() =>
                 {
                     var regionManager = new MockRegionManager();
 
-                    var region = new Region();
-                    region.RegionManager = regionManager;
+                    var region = new Region() { RegionManager = regionManager };
 
-                    var behavior = new ClearChildViewsRegionBehavior();
-                    behavior.Region = region;
+                    var behavior = new ClearChildViewsRegionBehavior() { Region = region };
                     behavior.Attach();
 
                     var childView = new MockFrameworkElement();
@@ -78,7 +76,7 @@ namespace Microsoft.Practices.Prism.Tests.Regions.Behaviors
         }
 
         [TestMethod]
-        public async void WhenRegionManagerChangesToNotNullValue_ThenChildViewsRegionManagerIsNotCleared()
+        public async Task WhenRegionManagerChangesToNotNullValue_ThenChildViewsRegionManagerIsNotCleared()
         {
             await ExecuteOnUIThread(() =>
                 {
