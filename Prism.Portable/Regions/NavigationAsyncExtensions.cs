@@ -15,6 +15,7 @@
 // places, or events is intended or should be inferred.
 //===================================================================================
 using System;
+using System.Diagnostics.Contracts;
 
 namespace Microsoft.Practices.Prism.Regions
 {
@@ -43,6 +44,7 @@ namespace Microsoft.Practices.Prism.Regions
         {
             if (navigation == null) throw new ArgumentNullException("navigation");
             if (target == null) throw new ArgumentNullException("target");
+            Contract.EndContractBlock();
 
             var targetUri = new Uri(target, UriKind.RelativeOrAbsolute);
 

@@ -16,6 +16,7 @@ using Microsoft.Practices.Prism.Properties;
 // places, or events is intended or should be inferred.
 //===================================================================================
 using System;
+using System.Diagnostics.Contracts;
 
 namespace Microsoft.Practices.Prism.Regions
 {
@@ -37,10 +38,8 @@ namespace Microsoft.Practices.Prism.Regions
             }
             set
             {
-                if (this.IsAttached)
-                {
-                    throw new InvalidOperationException(Resources.RegionBehaviorRegionCannotBeSetAfterAttach);
-                }
+                if (this.IsAttached) throw new InvalidOperationException(Resources.RegionBehaviorRegionCannotBeSetAfterAttach);
+                Contract.EndContractBlock();
 
                 this.region = value;
             }
@@ -56,10 +55,8 @@ namespace Microsoft.Practices.Prism.Regions
         /// </summary>
         public void Attach()
         {
-            if (this.region == null)
-            {
-                throw new InvalidOperationException(Resources.RegionBehaviorAttachCannotBeCallWithNullRegion);
-            }
+            if (this.Region == null) throw new InvalidOperationException(Resources.RegionBehaviorAttachCannotBeCallWithNullRegion);
+            Contract.EndContractBlock();
 
             IsAttached = true;
             OnAttach();

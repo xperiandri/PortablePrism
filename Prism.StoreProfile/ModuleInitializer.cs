@@ -8,15 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.ApplicationModel;
 
-namespace Microsoft.Practices.Prism
+namespace Microsoft.Practices.Prism.Heplers
 {
-    static class AssemblyInitializer
+    internal static class ModuleInitializer
     {
-        public static void Run()
+        public static void Initialize()
         {
             InitializeCompositePresentationEvent();
             InitializeWeakEventHandlerManager();
-            InitializeDesignModeAccessor();
         }
 
         private static void InitializeCompositePresentationEvent()
@@ -28,11 +27,6 @@ namespace Microsoft.Practices.Prism
         private static void InitializeWeakEventHandlerManager()
         {
             EventHandlerManager.Current = new WeakEventHandlerManager();
-        }
-
-        private static void InitializeDesignModeAccessor()
-        {
-            ViewModelBase.SetDesignModeAccessor(() => DesignMode.DesignModeEnabled);
         }
     }
 }

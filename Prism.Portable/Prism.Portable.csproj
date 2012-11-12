@@ -104,6 +104,7 @@
     <Compile Include="Commands\DelegateCommandBase.cs" />
     <Compile Include="Commands\EventHandlerManager.cs" />
     <Compile Include="ContractAbbreviatorAttribute .cs" />
+    <Compile Include="DesignerPlatformLibrary.cs" />
     <Compile Include="Events\BackgroundEventSubscription.cs" />
     <Compile Include="Events\CompositePresentationEvent.cs" />
     <Compile Include="Events\DataEventArgs.cs" />

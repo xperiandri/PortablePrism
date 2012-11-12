@@ -28,6 +28,7 @@ using Microsoft.Practices.Prism.Regions.Behaviors;
 using Microsoft.Practices.ServiceLocation;
 using Windows.UI.Xaml;
 using Microsoft.Practices.Prism.Properties;
+using System.Diagnostics.Contracts;
 
 namespace Microsoft.Practices.Prism.Regions
 {
@@ -68,6 +69,7 @@ namespace Microsoft.Practices.Prism.Regions
         public static void SetRegionName(DependencyObject regionTarget, string regionName)
         {
             if (regionTarget == null) throw new ArgumentNullException("regionTarget");
+            Contract.EndContractBlock();
             regionTarget.SetValue(RegionNameProperty, regionName);
         }
 
@@ -80,6 +82,7 @@ namespace Microsoft.Practices.Prism.Regions
         public static string GetRegionName(DependencyObject regionTarget)
         {
             if (regionTarget == null) throw new ArgumentNullException("regionTarget");
+            Contract.EndContractBlock();
             return regionTarget.GetValue(RegionNameProperty) as string;
         }
 
@@ -100,7 +103,8 @@ namespace Microsoft.Practices.Prism.Regions
         public static ObservableObject<IRegion> GetObservableRegion(DependencyObject view)
         {
             if (view == null) throw new ArgumentNullException("view");
-
+            Contract.EndContractBlock();
+            
             ObservableObject<IRegion> regionWrapper = view.GetValue(ObservableRegionProperty) as ObservableObject<IRegion>;
 
             if (regionWrapper == null)
@@ -150,6 +154,7 @@ namespace Microsoft.Practices.Prism.Regions
         public static IRegionManager GetRegionManager(DependencyObject target)
         {
             if (target == null) throw new ArgumentNullException("target");
+            Contract.EndContractBlock();
             return (IRegionManager)target.GetValue(RegionManagerProperty);
         }
 
@@ -161,6 +166,7 @@ namespace Microsoft.Practices.Prism.Regions
         public static void SetRegionManager(DependencyObject target, IRegionManager value)
         {
             if (target == null) throw new ArgumentNullException("target");
+            Contract.EndContractBlock();
             target.SetValue(RegionManagerProperty, value);
         }
 
@@ -186,6 +192,7 @@ namespace Microsoft.Practices.Prism.Regions
         public static object GetRegionContext(DependencyObject target)
         {
             if (target == null) throw new ArgumentNullException("target");
+            Contract.EndContractBlock();
             return target.GetValue(RegionContextProperty);
         }
 
@@ -197,6 +204,7 @@ namespace Microsoft.Practices.Prism.Regions
         public static void SetRegionContext(DependencyObject target, object value)
         {
             if (target == null) throw new ArgumentNullException("target");
+            Contract.EndContractBlock();
             target.SetValue(RegionContextProperty, value);
         }
 
@@ -314,7 +322,7 @@ namespace Microsoft.Practices.Prism.Regions
 
             public void Add(IRegion region)
             {
-                if (region == null) throw new ArgumentNullException("region");
+                //if (region == null) throw new ArgumentNullException("region");
                 UpdateRegions();
 
                 if (region.Name == null)

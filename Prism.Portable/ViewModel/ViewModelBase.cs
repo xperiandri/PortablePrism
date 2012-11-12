@@ -1,77 +1,114 @@
 ﻿using System;
 using System.Diagnostics.Contracts;
-using System.Net;
-using System.Windows;
-using System.Windows.Input;
+using System.Linq;
+using System.Reflection;
 
 namespace Microsoft.Practices.Prism.ViewModel
 {
     public class ViewModelBase : NotificationObject
     {
-        private static Func<bool> designModeAccessor;
-
-        public static bool IsDesignModeAccessorSet
-        {
-            get
-            {
-                return designModeAccessor != null;
-            }
-        }
+        private readonly static Lazy<bool> isInDesignMode = new Lazy<bool>(GetIsInDesignMode);
 
         protected static bool IsInDesignMode
         {
             get
             {
-                return designModeAccessor();
+                return isInDesignMode.Value;
             }
-            
         }
 
-        //static ViewModelBase()
-        //{
-        //    if (!IsDesignModeAccessorSet)
-        //        SetDesignModeAccessor(GetDesignModeAccessor());
-        //}
-
-        //private static Func<bool> GetDesignModeAccessor()
-        //{
-        //    // We check Silverlight first because when in the VS designer, the .NET libraries will resolve
-        //    // If we can resolve the SL libs, then we're in SL or WP
-        //    // Then we check .NET because .NET will load the WinRT library (even though it can't really run it)
-        //    // When running in WinRT, it will not load the PresentationFramework lib
-
-        //    // Check Silverlight
-        //    var dm = Type.GetType("System.ComponentModel.DesignerProperties, System.Windows");
-        //    if (dm != null)
-        //    {
-        //        var mi = dm.GetProperty("IsInDesignTool").GetGetMethod();
-        //        return ()=> ((bool) mi.Invoke(null, new object[0]));
-        //    }
-
-        //    // Check .NET 
-        //    //var cmdm = Type.GetType("System.ComponentModel.DesignerProperties, PresentationFramework");
-        //    //if (cmdm != null) // loaded the assembly, could be .net 
-        //    //{
-        //    //    var mi = dm.GetMethod("GetIsInDesignMode");
-        //    //    return ()=> ((bool) mi.Invoke(null, new object[] {}));
-        //    //}
-
-        //    // check WinRT next
-        //    var wadm = Type.GetType("Windows.ApplicationModel.DesignMode, Windows, ContentType=WindowsRuntime");
-        //    if (wadm != null)
-        //    {
-        //        var mi = dm.GetProperty("DesignModeEnabled").GetGetMethod();
-        //        return ()=> ((bool) mi.Invoke(null, new object[0]));
-        //    }
-
-        //    throw new InvalidOperationException();
-        //}
-
-        public static void SetDesignModeAccessor(Func<bool> accessor)
+        private static bool GetIsInDesignMode()
         {
-            Contract.Requires<InvalidOperationException>(!IsDesignModeAccessorSet);
-            designModeAccessor = accessor;
+            // As a portable lib, we need see what framework we're runnign on
+            // and use reflection to get the designer value
+
+            var platform = DesignerLibrary.DetectedDesignerLibrary;
+
+            if (platform == DesignerPlatformLibrary.WinRT)
+                return IsInDesignModeWinRT();
+
+            if (platform == DesignerPlatformLibrary.Silverlight)
+            {
+                var desMode = IsInDesignModeSilverlight();
+                if (!desMode)
+                    desMode = IsInDesignModeNet(); // hard to tell these apart in the designer
+
+                return desMode;
+            }
+
+            if (platform == DesignerPlatformLibrary.Net)
+                return IsInDesignModeNet();
+
+            return false;
         }
-        
+
+        private static bool IsInDesignModeSilverlight()
+        {
+            try
+            {
+                var dm = Type.GetType("System.ComponentModel.DesignerProperties, System.Windows, Version=2.0.5.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e");
+
+                var dme = dm.GetProperty("IsInDesignTool", BindingFlags.Public | BindingFlags.Static);
+                return (bool)dme.GetValue(null, null);
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        private static bool IsInDesignModeWinRT()
+        {
+            try
+            {
+                var dm = Type.GetType("Windows.ApplicationModel.DesignMode, Windows, ContentType=WindowsRuntime");
+
+                var dme = dm.GetProperty("DesignModeEnabled", BindingFlags.Static | BindingFlags.Public);
+                return (bool)dme.GetValue(null, null);
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        private static bool IsInDesignModeNet()
+        {
+            try
+            {
+                var dm =
+                    Type.GetType(
+                        "System.ComponentModel.DesignerProperties, PresentationFramework, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35");
+
+                var dmp = dm.GetField("IsInDesignModeProperty", BindingFlags.Public | BindingFlags.Static).GetValue(null);
+
+                var dpd =
+                    Type.GetType(
+                        "System.ComponentModel.DependencyPropertyDescriptor, WindowsBase, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35");
+                var typeFe =
+                    Type.GetType("System.Windows.FrameworkElement, PresentationFramework, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35");
+
+                var fromPropertys = dpd.GetMethods(BindingFlags.Public | BindingFlags.Static);
+                var fromProperty = fromPropertys.Single(mi => mi.Name == "FromProperty" && mi.GetParameters().Length == 2);
+
+                var descriptor = fromProperty.Invoke(null, new object[] { dmp, typeFe });
+
+                var metaProp = dpd.GetProperty("Metadata", BindingFlags.Public | BindingFlags.Instance);
+
+                var metadata = metaProp.GetValue(descriptor, null);
+
+                var tPropMeta = Type.GetType("System.Windows.PropertyMetadata, WindowsBase, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35");
+
+                var dvProp = tPropMeta.GetProperty("DefaultValue", BindingFlags.Public | BindingFlags.Instance);
+
+                var dv = (bool)dvProp.GetValue(metadata, null);
+
+                return dv;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

@@ -73,7 +73,7 @@ namespace Microsoft.Practices.Prism.Events
         /// <param name="dispatcher"></param>
         public static void InitializeDispatcher(Lazy<IDispatcherFacade> dispatcher)
         {
-            Contract.Requires<InvalidOperationException>(IsDispatcherInitialized);
+            Contract.Requires<InvalidOperationException>(!IsDispatcherInitialized);
             uiDispatcher = dispatcher;
         }
 

@@ -26,12 +26,12 @@ namespace Microsoft.Practices.Prism.Tests.Events
     [TestClass]
     public class CompositePresentationEventFixture
     {
-        [ClassInitialize]
-        public static void InitializeAllTests(TestContext context)
-        {
-            var dispatcher = new Lazy<IDispatcherFacade>(() => new DefaultDispatcher());
-            CompositePresentationEvent<object>.InitializeDispatcher(dispatcher);
-        }
+        //[ClassInitialize]
+        //public static void InitializeAllTests(TestContext context)
+        //{
+        //    var dispatcher = new Lazy<IDispatcherFacade>(() => new DefaultDispatcher());
+        //    CompositePresentationEvent<object>.InitializeDispatcher(dispatcher);
+        //}
 
         [TestMethod]
         public void CanSubscribeAndRaiseEvent()

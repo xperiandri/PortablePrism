@@ -16,6 +16,7 @@
 //===================================================================================
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
 
@@ -32,10 +33,8 @@ namespace Microsoft.Practices.Prism.Regions
         /// <param name="navigationContext">The navigation context.</param>
         public RegionNavigationEventArgs(NavigationContext navigationContext)
         {
-            if (navigationContext == null)
-            {
-                throw new ArgumentNullException("navigationContext");
-            }
+            if (navigationContext == null) throw new ArgumentNullException("navigationContext");
+            Contract.EndContractBlock();
 
             this.NavigationContext = navigationContext;
         }

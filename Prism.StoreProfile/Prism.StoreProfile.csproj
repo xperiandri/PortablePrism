@@ -164,7 +164,7 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="AssemblyInitializer.cs" />
+    <Compile Include="ModuleInitializer.cs" />
     <Compile Include="Bootstrapper.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -208,6 +208,8 @@
     <Compile Include="Regions\SingleActiveRegion.cs" />
     <Compile Include="Regions\ViewsCollection.cs" />
     <Compile Include="Regions\ViewsCollection.Desktop.cs" />
+    <None Include="FodyWeavers.xml" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Practices.ServiceLocation">
@@ -232,8 +234,8 @@
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
-  </Target>-->
-  <Target Name="AfterBuild">
-    <Exec Command="..\tools\InjectModuleInitializer.exe /m:Microsoft.Practices.Prism.AssemblyInitializer::Run &quot;$(TargetPath)&quot;" />
   </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Import Project="$(ProjectPath)\..\..\Tools\Fody\Fody.targets" />
 </Project>

@@ -1,3 +1,4 @@
+using System;
 //===================================================================================
 // Microsoft patterns & practices
 // Composite Application Guidance for Windows Presentation Foundation and Silverlight
@@ -16,12 +17,14 @@
 //===================================================================================
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Diagnostics.Contracts;
 
 namespace Microsoft.Practices.Prism.Regions
 {
     /// <summary>
     /// Defines a collection of <see cref="IRegion"/> uniquely identified by their Name.
     /// </summary>
+    [ContractClass(typeof(IRegionCollectionContract))]
     public interface IRegionCollection : IEnumerable<IRegion>, INotifyCollectionChanged
     {
         /// <summary>
@@ -50,5 +53,52 @@ namespace Microsoft.Practices.Prism.Regions
         /// <param name="regionName">The name of the region to look for.</param>
         /// <returns><see langword="true"/> if the region is contained in the collection, otherwise <see langword="false"/>.</returns>
         bool ContainsRegionWithName(string regionName);
+    }
+
+    [ContractClassFor(typeof(IRegionCollection))]
+    internal abstract class IRegionCollectionContract : IRegionCollection
+    {
+        public IRegion this[string regionName]
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public void Add(IRegion region)
+        {
+            Contract.Requires<ArgumentNullException>(region != null);
+            throw new NotImplementedException();
+        }
+
+        public bool Remove(string regionName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool ContainsRegionWithName(string regionName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerator<IRegion> GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
+        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
+        public event NotifyCollectionChangedEventHandler CollectionChanged
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+            remove
+            {
+                throw new NotImplementedException();
+            }
+        }
     }
 }
