@@ -195,19 +195,9 @@
     <Compile Include="Mocks\MockContainerAdapter.cs" />
     <Compile Include="Mocks\MockDelegateReference.cs" />
     <Compile Include="Mocks\MockDependencyObject.cs" />
-    <Compile Include="Mocks\MockHostAwareRegionBehavior.cs" />
     <Compile Include="Mocks\MockLogger.cs" />
     <Compile Include="Mocks\MockModuleTypeLoader.cs" />
-    <Compile Include="Mocks\MockPresentationRegion.cs" />
-    <Compile Include="Mocks\MockRegion.cs" />
-    <Compile Include="Mocks\MockRegionAdapter.cs" />
-    <Compile Include="Mocks\MockRegionBehavior.cs" />
-    <Compile Include="Mocks\MockRegionBehaviorCollection.cs" />
-    <Compile Include="Mocks\MockRegionManager.cs" />
-    <Compile Include="Mocks\MockRegionManagerAccessor.cs" />
     <Compile Include="Mocks\MockServiceLocator.cs" />
-    <Compile Include="Mocks\MockSortableViews.cs" />
-    <Compile Include="Mocks\MockViewsCollection.cs" />
     <Compile Include="Mocks\Modules\MockAbstractModule.cs" />
     <Compile Include="Mocks\Modules\MockAttributedModule.cs" />
     <Compile Include="Mocks\Modules\MockDependantModule.cs" />
@@ -229,27 +219,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Regions\AllActiveRegionFixture.cs" />
-    <Compile Include="Regions\Behaviors\AutoPopulateRegionBehaviorFixture.cs" />
-    <Compile Include="Regions\Behaviors\BindRegionContextToDependencyObjectBehaviorFixture.cs" />
-    <Compile Include="Regions\Behaviors\ClearChildViewsRegionBehaviorFixture.cs" />
-    <Compile Include="Regions\Behaviors\DelayedRegionCreationBehaviorFixture.cs" />
-    <Compile Include="Regions\Behaviors\RegionManagerRegistrationBehaviorFixture.cs" />
-    <Compile Include="Regions\Behaviors\SelectorItemsSourceSyncRegionBehaviorFixture.cs" />
-    <Compile Include="Regions\Behaviors\SyncRegionContextWithHostBehaviorFixture.cs" />
-    <Compile Include="Regions\ContentControlRegionAdapterFixture.cs" />
-    <Compile Include="Regions\ItemsControlRegionAdapterFixture.cs" />
-    <Compile Include="Regions\RegionAdapterBaseFixture.cs" />
-    <Compile Include="Regions\RegionAdapterMappingsFixture.cs" />
-    <Compile Include="Regions\RegionBehaviorCollectionFixture.cs" />
-    <Compile Include="Regions\RegionBehaviorFactoryFixture.cs" />
-    <Compile Include="Regions\RegionBehaviorFixture.cs" />
-    <Compile Include="Regions\RegionManagerExtensionsFixture.cs" />
-    <Compile Include="Regions\RegionManagerFixture.cs" />
-    <Compile Include="Regions\RegionViewRegistryFixture.cs" />
-    <Compile Include="Regions\SelectorRegionAdapterFixture.cs" />
-    <Compile Include="Regions\SingleActiveRegionFixture.cs" />
-    <Compile Include="Regions\ViewsCollectionFixture.cs" />
     <Compile Include="ResourceHelperInitializer.cs" />
     <Compile Include="ServiceLocatorExtensionsFixture.cs" />
     <Compile Include="UriQueryFixture.cs" />

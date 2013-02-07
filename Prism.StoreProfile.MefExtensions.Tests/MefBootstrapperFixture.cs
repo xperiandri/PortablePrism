@@ -14,23 +14,25 @@
 // organization, product, domain name, email address, logo, person,
 // places, or events is intended or should be inferred.
 //===================================================================================
-using System.Collections.Generic;
-using System.Composition;
-using System.Reflection;
-using System.Windows;
+
 using Microsoft.Practices.Prism.Events;
 using Microsoft.Practices.Prism.Logging;
 using Microsoft.Practices.Prism.MefExtensions.Modularity;
 using Microsoft.Practices.Prism.Modularity;
-using Microsoft.Practices.Prism.Regions;
-using Microsoft.Practices.Prism.Regions.Behaviors;
+//using Microsoft.Practices.Prism.Regions;
+//using Microsoft.Practices.Prism.Regions.Behaviors;
 using Microsoft.Practices.ServiceLocation;
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
-using Windows.UI.Xaml;
-using System.Composition.Hosting;
-using System.Runtime.CompilerServices;
-using System.Linq.Expressions;
 using System;
+using System.Collections.Generic;
+using System.Composition;
+using System.Composition.Hosting;
+using System.Linq.Expressions;
+using System.Reflection;
+using System.Runtime.CompilerServices;
+using System.Windows;
+using Windows.UI.Xaml;
+
 //using Moq;
 
 namespace Microsoft.Practices.Prism.MefExtensions.Tests
@@ -201,9 +203,9 @@ namespace Microsoft.Practices.Prism.MefExtensions.Tests
             var exported = bootstrapper.BaseContainer.GetExportedValue<SelectorItemsSourceSyncBehavior>();
             Assert.IsNotNull(exported);
         }
-        
+
 #if SILVERLIGHT
-        
+
         [TestMethod]
         public void SingleMefXapModuleTypeLoaderIsRegisteredWithContainer()
         {
@@ -397,7 +399,7 @@ namespace Microsoft.Practices.Prism.MefExtensions.Tests
             Assert.IsNotNull(actual1);
             Assert.IsNotNull(actual2);
             Assert.AreNotSame(actual1, actual2);
-        }        
+        }
 
         [TestMethod]
         public void RegionNavigationJournalIsRegisteredWithContainer()
@@ -435,7 +437,7 @@ namespace Microsoft.Practices.Prism.MefExtensions.Tests
 
             var exported = bootstrapper.BaseContainer.GetExportedValue<IRegionNavigationContentLoader>();
             Assert.IsNotNull(exported);
-        }       
+        }
 
         private static Mock<IModuleManager> SetupModuleManager(CompositionContainer container)
         {
@@ -489,8 +491,8 @@ namespace Microsoft.Practices.Prism.MefExtensions.Tests
         public DependencyObject ShellObject;
 
         public List<string> MethodCalls = new List<string>();
-        public RegionAdapterMappings DefaultRegionAdapterMappings;
-        public IRegionBehaviorFactory DefaultRegionBehaviorTypes;
+        //public RegionAdapterMappings DefaultRegionAdapterMappings;
+        //public IRegionBehaviorFactory DefaultRegionBehaviorTypes;
         public bool ConfigureServiceLocatorCalled;
 
         public ILoggerFacade BaseLogger
@@ -525,14 +527,14 @@ namespace Microsoft.Practices.Prism.MefExtensions.Tests
             return methodName;
         }
 
-        protected override RegionAdapterMappings ConfigureRegionAdapterMappings()
-        {
-            this.ConfigureRegionAdapterMappingsCalled = true;
-            this.MethodCalls.Add(GetMethodName(() => ConfigureRegionAdapterMappings()));
-            DefaultRegionAdapterMappings = base.ConfigureRegionAdapterMappings();
+        //protected override RegionAdapterMappings ConfigureRegionAdapterMappings()
+        //{
+        //    this.ConfigureRegionAdapterMappingsCalled = true;
+        //    this.MethodCalls.Add(GetMethodName(() => ConfigureRegionAdapterMappings()));
+        //    DefaultRegionAdapterMappings = base.ConfigureRegionAdapterMappings();
 
-            return DefaultRegionAdapterMappings;
-        }
+        //    return DefaultRegionAdapterMappings;
+        //}
 
         protected override DependencyObject CreateShell()
         {
@@ -541,14 +543,14 @@ namespace Microsoft.Practices.Prism.MefExtensions.Tests
             return this.ShellObject;
         }
 
-        protected override IRegionBehaviorFactory ConfigureDefaultRegionBehaviors()
-        {
-            this.ConfigureDefaultRegionBehaviorsCalled = true;
-            this.MethodCalls.Add(GetMethodName(() => ConfigureDefaultRegionBehaviors()));
-            this.DefaultRegionBehaviorTypes = base.ConfigureDefaultRegionBehaviors();
+        //protected override IRegionBehaviorFactory ConfigureDefaultRegionBehaviors()
+        //{
+        //    this.ConfigureDefaultRegionBehaviorsCalled = true;
+        //    this.MethodCalls.Add(GetMethodName(() => ConfigureDefaultRegionBehaviors()));
+        //    this.DefaultRegionBehaviorTypes = base.ConfigureDefaultRegionBehaviors();
 
-            return this.DefaultRegionBehaviorTypes;
-        }
+        //    return this.DefaultRegionBehaviorTypes;
+        //}
 
         public void CallInitializeModules()
         {
@@ -609,6 +611,7 @@ namespace Microsoft.Practices.Prism.MefExtensions.Tests
         {
             this.SetupContainerConfigurationCalled = true;
             this.MethodCalls.Add(GetMethodName(() => SetupContainerConfiguration()));
+
             // no op
         }
 

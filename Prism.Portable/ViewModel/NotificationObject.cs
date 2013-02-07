@@ -30,7 +30,6 @@ namespace Microsoft.Practices.Prism.ViewModel
     /// This class provides basic support for implementing the <see cref="INotifyPropertyChanged"/> interface and for
     /// marshalling execution to the UI thread.
     /// </remarks>
-    [DataContract]
     public abstract class NotificationObject : INotifyPropertyChanged
     {
         /// <summary>
@@ -43,7 +42,7 @@ namespace Microsoft.Practices.Prism.ViewModel
         /// </summary>
         /// <param name="propertyName">The property that has a new value.</param>
         [SuppressMessage("Microsoft.Design", "CA1030:UseEventsWhereAppropriate", Justification = "Method used to raise an event")]
-        protected virtual void RaisePropertyChanged(string propertyName = null)
+        protected virtual void RaisePropertyChanged(string propertyName)
         {
             PropertyChangedEventHandler handler = this.PropertyChanged;
             if (handler != null)

@@ -170,6 +170,9 @@
     </PRIResource>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\Common\CommonAssemblyInfo.cs">
+      <Link>CommonAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="Events\MefEventAggregator.cs" />
     <Compile Include="Extensions\ContainerConfigurationExtensions.cs" />
     <Compile Include="Extensions\DelegateExportDescriptorProvider.cs" />
@@ -183,26 +186,6 @@
     <Compile Include="Modularity\MefModuleManager.cs" />
     <Compile Include="Modularity\ModuleExportAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Regions\Behaviors\MefAutoPopulateRegionBehavior.cs" />
-    <Compile Include="Regions\Behaviors\MefBindRegionContextToDependencyObjectBehavior.cs" />
-    <Compile Include="Regions\Behaviors\MefClearChildViewsRegionBehavior.cs" />
-    <Compile Include="Regions\Behaviors\MefDelayedRegionCreationBehavior.cs" />
-    <Compile Include="Regions\Behaviors\MefRegionActiveAwareBehavior.cs" />
-    <Compile Include="Regions\Behaviors\MefRegionManagerRegistrationBehavior.cs" />
-    <Compile Include="Regions\Behaviors\MefRegionMemberLifetimeBehavior.cs" />
-    <Compile Include="Regions\Behaviors\MefSelectorItemsSourceSyncBehavior.cs" />
-    <Compile Include="Regions\Behaviors\MefSyncRegionContextWithHostBehavior.cs" />
-    <Compile Include="Regions\MefContentControlRegionAdapter.cs" />
-    <Compile Include="Regions\MefItemsControlRegionAdapter.cs" />
-    <Compile Include="Regions\MefRegionAdapterMappings.cs" />
-    <Compile Include="Regions\MefRegionBehaviorFactory.cs" />
-    <Compile Include="Regions\MefRegionManager.cs" />
-    <Compile Include="Regions\MefRegionNavigationContentLoader.cs" />
-    <Compile Include="Regions\MefRegionNavigationJournal.cs" />
-    <Compile Include="Regions\MefRegionNavigationJournalEntry.cs" />
-    <Compile Include="Regions\MefRegionNavigationService.cs" />
-    <Compile Include="Regions\MefRegionViewRegistry.cs" />
-    <Compile Include="Regions\MefSelectorRegionAdapter.cs" />
     <Compile Include="Properties\ResourceHelper.cs" />
   </ItemGroup>
   <ItemGroup>

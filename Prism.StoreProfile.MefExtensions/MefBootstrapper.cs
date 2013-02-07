@@ -23,7 +23,7 @@ using System.Reflection;
 using Microsoft.Practices.Prism.Logging;
 using Microsoft.Practices.Prism.MefExtensions.Properties;
 using Microsoft.Practices.Prism.Modularity;
-using Microsoft.Practices.Prism.Regions;
+//using Microsoft.Practices.Prism.Regions;
 using Microsoft.Practices.ServiceLocation;
 using System.Collections.Generic;
 using System.Linq;
@@ -98,11 +98,11 @@ namespace Microsoft.Practices.Prism.MefExtensions
             this.Logger.Log(ResourceHelper.ConfiguringServiceLocatorSingleton, Category.Debug, Priority.Low);
             this.ConfigureServiceLocator();
 
-            this.Logger.Log(ResourceHelper.ConfiguringRegionAdapters, Category.Debug, Priority.Low);
-            this.ConfigureRegionAdapterMappings();
+            //this.Logger.Log(ResourceHelper.ConfiguringRegionAdapters, Category.Debug, Priority.Low);
+            //this.ConfigureRegionAdapterMappings();
 
-            this.Logger.Log(ResourceHelper.ConfiguringDefaultRegionBehaviors, Category.Debug, Priority.Low);
-            this.ConfigureDefaultRegionBehaviors();
+            //this.Logger.Log(ResourceHelper.ConfiguringDefaultRegionBehaviors, Category.Debug, Priority.Low);
+            //this.ConfigureDefaultRegionBehaviors();
 
             this.Logger.Log(ResourceHelper.RegisteringFrameworkExceptionTypes, Category.Debug, Priority.Low);
             this.RegisterFrameworkExceptionTypes();
@@ -111,11 +111,11 @@ namespace Microsoft.Practices.Prism.MefExtensions
             this.Shell = this.CreateShell();
             if (this.Shell != null)
             {
-                this.Logger.Log(ResourceHelper.SettingTheRegionManager, Category.Debug, Priority.Low);
-                RegionManager.SetRegionManager(this.Shell, this.Container.GetExport<IRegionManager>());
+                //this.Logger.Log(ResourceHelper.SettingTheRegionManager, Category.Debug, Priority.Low);
+                //RegionManager.SetRegionManager(this.Shell, this.Container.GetExport<IRegionManager>());
 
-                this.Logger.Log(ResourceHelper.UpdatingRegions, Category.Debug, Priority.Low);
-                RegionManager.UpdateRegions();
+                //this.Logger.Log(ResourceHelper.UpdatingRegions, Category.Debug, Priority.Low);
+                //RegionManager.UpdateRegions();
 
                 this.Logger.Log(ResourceHelper.InitializingShell, Category.Debug, Priority.Low);
                 this.InitializeShell();

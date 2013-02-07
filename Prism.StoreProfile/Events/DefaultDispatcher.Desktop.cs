@@ -31,17 +31,26 @@ namespace Microsoft.Practices.Prism.Events
     /// </summary>
     public class DefaultDispatcher : IDispatcherFacade
     {
+        private static CoreDispatcher dispatcher;
+
         /// <summary>
         /// Forwards the BeginInvoke to the current application's <see cref="Dispatcher"/>.
         /// </summary>
         /// <param name="method">Method to be invoked.</param>
         /// <param name="arg">Arguments to pass to the invoked method.</param>
-        public async void BeginInvoke(Delegate method, params object[] arg)
+        public Task BeginInvoke(Delegate method, params object[] arg)
         {
-            if (CoreApplication.MainView.CoreWindow != null)
+            if (dispatcher != null)
+                return dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => method.DynamicInvoke(arg)).AsTask();
+
+            var coreWindow = CoreApplication.MainView.CoreWindow;
+            if (coreWindow != null)
             {
-                await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => method.DynamicInvoke(arg));
+                dispatcher = coreWindow.Dispatcher;
+                return dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => method.DynamicInvoke(arg)).AsTask();
             }
+            else
+                return Task.Delay(0);
         }
 
         public bool HasThreadAccess

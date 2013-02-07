@@ -98,6 +98,9 @@
     <CodeContractsAnalysisWarningLevel>0</CodeContractsAnalysisWarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="..\Common\CommonAssemblyInfo.cs">
+      <Link>CommonAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="CollectionExtensions.cs" />
     <Compile Include="Commands\CompositeCommand.cs" />
     <Compile Include="Commands\DelegateCommand.cs" />
@@ -148,50 +151,16 @@
     <Compile Include="Modularity\ModuleInfoGroupExtensions.cs" />
     <Compile Include="Modularity\ModuleInitializer.cs" />
     <Compile Include="Modularity\ModuleState.cs" />
+    <Compile Include="Navigation\INavigationAware.cs" />
+    <Compile Include="Navigation\NavigatingCancelContext.cs" />
+    <Compile Include="Navigation\NavigationContext.cs" />
+    <Compile Include="Navigation\NavigationMode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Regions\Behaviors\AutoPopulateRegionBehavior.cs" />
-    <Compile Include="Regions\Behaviors\RegionCreationException.cs" />
-    <Compile Include="Regions\IConfirmNavigationRequest.cs" />
-    <Compile Include="Regions\INavigateAsync.cs" />
-    <Compile Include="Regions\INavigationAware.cs" />
-    <Compile Include="Regions\IRegion.cs" />
-    <Compile Include="Regions\IRegionAdapter.cs" />
-    <Compile Include="Regions\IRegionBehavior.cs" />
-    <Compile Include="Regions\IRegionBehaviorCollection.cs" />
-    <Compile Include="Regions\IRegionBehaviorFactory.cs" />
-    <Compile Include="Regions\IRegionCollection.cs" />
-    <Compile Include="Regions\IRegionManager.cs" />
-    <Compile Include="Regions\IRegionMemberLifetime.cs" />
-    <Compile Include="Regions\IRegionNavigationContentLoader.cs" />
-    <Compile Include="Regions\IRegionNavigationJournal.cs" />
-    <Compile Include="Regions\IRegionNavigationJournalEntry.cs" />
-    <Compile Include="Regions\IRegionNavigationService.cs" />
-    <Compile Include="Regions\IRegionViewRegistry.cs" />
-    <Compile Include="Regions\IViewsCollection.cs" />
-    <Compile Include="Regions\NavigationAsyncExtensions.cs" />
-    <Compile Include="Regions\NavigationContext.cs" />
-    <Compile Include="Regions\NavigationResult.cs" />
-    <Compile Include="Regions\RegionAdapterMappings.cs" />
-    <Compile Include="Regions\RegionBehavior.cs" />
-    <Compile Include="Regions\RegionBehaviorCollection.cs" />
-    <Compile Include="Regions\RegionBehaviorFactory.cs" />
-    <Compile Include="Regions\RegionManagerExtensions.cs" />
-    <Compile Include="Regions\RegionMemberLifetimeAttribute.cs" />
-    <Compile Include="Regions\RegionNavigationEventArgs.cs" />
-    <Compile Include="Regions\RegionNavigationFailedEventArgs.cs" />
-    <Compile Include="Regions\RegionNavigationJournal.cs" />
-    <Compile Include="Regions\RegionNavigationJournalEntry.cs" />
-    <Compile Include="Regions\RegionViewRegistry.cs" />
-    <Compile Include="Regions\SyncActiveStateAttribute.cs" />
-    <Compile Include="Regions\UpdateRegionsException.cs" />
-    <Compile Include="Regions\ViewRegisteredEventArgs.cs" />
-    <Compile Include="Regions\ViewRegistrationException.cs" />
-    <Compile Include="Regions\ViewSortHintAttribute.cs" />
     <Compile Include="ServiceLocatorExtensions.cs" />
     <Compile Include="UriParsingHelper.cs" />
     <Compile Include="UriQuery.cs" />
@@ -212,6 +181,7 @@
       <HintPath>..\packages\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -331,9 +331,7 @@ namespace Microsoft.Practices.Prism.Regions
         public virtual object GetView(string viewName)
         {
             if (string.IsNullOrEmpty(viewName))
-            {
                 throw new ArgumentException(string.Format(CultureInfo.CurrentCulture, ResourceHelper.StringCannotBeNullOrEmpty, "viewName"));
-            }
 
             ItemMetadata metadata = this.ItemMetadataCollection.FirstOrDefault(x => x.Name == viewName);
 

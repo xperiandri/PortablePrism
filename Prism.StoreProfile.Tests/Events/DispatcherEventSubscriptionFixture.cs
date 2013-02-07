@@ -20,6 +20,7 @@ using Microsoft.Practices.Prism.Tests.Mocks;
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 using System;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Microsoft.Practices.Prism.Tests.Events
 {
@@ -87,7 +88,7 @@ namespace Microsoft.Practices.Prism.Tests.Events
         public object[] InvokeArgs;
         private bool hasThreadAccess;
 
-        public void BeginInvoke(Delegate method, params object[] args)
+        public async Task BeginInvoke(Delegate method, params object[] args)
         {
             InvokeCalled = true;
             InvokeArgs = args;

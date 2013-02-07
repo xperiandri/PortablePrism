@@ -21,6 +21,7 @@ using System.Globalization;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media;
 using Microsoft.Practices.Prism.Properties;
+using System.Diagnostics.Contracts;
 
 namespace Microsoft.Practices.Prism.Regions.Behaviors
 {
@@ -66,10 +67,8 @@ namespace Microsoft.Practices.Prism.Regions.Behaviors
             }
             set
             {
-                if (IsAttached)
-                {
-                    throw new InvalidOperationException(ResourceHelper.HostControlCannotBeSetAfterAttach);
-                }
+                if (IsAttached) throw new InvalidOperationException(ResourceHelper.HostControlCannotBeSetAfterAttach);
+                Contract.EndContractBlock();
                 this.hostControl = value;
             }
         }
@@ -151,9 +150,7 @@ namespace Microsoft.Practices.Prism.Regions.Behaviors
                 return regionmanager;
             }
 
-            DependencyObject parent = null;
-
-            parent = VisualTreeHelper.GetParent(dependencyObject);
+            DependencyObject parent = VisualTreeHelper.GetParent(dependencyObject);
 
             if (parent != null)
             {

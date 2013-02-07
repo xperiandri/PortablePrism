@@ -21,7 +21,7 @@ using System.Text;
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 using System.Composition;
 using Microsoft.Practices.Prism.Modularity;
-using Microsoft.Practices.Prism.Regions;
+//using Microsoft.Practices.Prism.Regions;
 using Microsoft.Practices.Prism.Logging;
 using Microsoft.Practices.ServiceLocation;
 using Windows.UI.Xaml;
@@ -50,15 +50,15 @@ namespace Microsoft.Practices.Prism.MefExtensions.Tests
  	             //base.RegisterDefaultTypesIfMissing();
             }            
 
-            protected override IRegionBehaviorFactory ConfigureDefaultRegionBehaviors()
-            {
-                return null;
-            }
+            //protected override IRegionBehaviorFactory ConfigureDefaultRegionBehaviors()
+            //{
+            //    return null;
+            //}
 
-            protected override RegionAdapterMappings ConfigureRegionAdapterMappings()
-            {
-                return null;
-            }           
+            //protected override RegionAdapterMappings ConfigureRegionAdapterMappings()
+            //{
+            //    return null;
+            //}           
 
             protected override DependencyObject CreateShell()
             {

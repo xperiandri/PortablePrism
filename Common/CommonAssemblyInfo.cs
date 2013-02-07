@@ -15,22 +15,22 @@
 // places, or events is intended or should be inferred.
 //===================================================================================
 using System;
-using System.Threading.Tasks;
+using System.Reflection;
+using System.Resources;
+using System.Runtime.InteropServices;
 
-namespace Microsoft.Practices.Prism.Events
-{
-    /// <summary>
-    /// Defines the interface for invoking methods through a Dispatcher Facade
-    /// </summary>
-    public interface IDispatcherFacade
-    {
-        /// <summary>
-        /// Dispatches an invocation to the method received as parameter.
-        /// </summary>
-        /// <param name="method">Method to be invoked.</param>
-        /// <param name="args">Arguments to pass to the invoked method.</param>
-        Task BeginInvoke(Delegate method, params object[] args);
+[assembly: AssemblyCompany("Microsoft Corporation")]
+[assembly: AssemblyCopyright("Copyright (c) 2008-2012 Microsoft Corporation.  All rights reserved.")]
+[assembly: AssemblyTrademark("")]
 
-        bool HasThreadAccess { get; }
-    }
-}
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+[assembly: AssemblyVersion("4.5.0.0")]
+[assembly: AssemblyFileVersion("4.5.0.0")]

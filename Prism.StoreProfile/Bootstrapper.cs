@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 using Microsoft.Practices.Prism;
 using Microsoft.Practices.Prism.Logging;
 using Microsoft.Practices.Prism.Modularity;
-using Microsoft.Practices.Prism.Regions;
-using Microsoft.Practices.Prism.Regions.Behaviors;
+//using Microsoft.Practices.Prism.Regions;
+//using Microsoft.Practices.Prism.Regions.Behaviors;
 using Microsoft.Practices.ServiceLocation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -101,60 +101,60 @@ namespace Microsoft.Practices.Prism
             manager.Run();
         }
 
-        /// <summary>
-        /// Configures the default region adapter mappings to use in the application, in order
-        /// to adapt UI controls defined in XAML to use a region and register it automatically.
-        /// May be overwritten in a derived class to add specific mappings required by the application.
-        /// </summary>
-        /// <returns>The <see cref="RegionAdapterMappings"/> instance containing all the mappings.</returns>
-        protected virtual RegionAdapterMappings ConfigureRegionAdapterMappings()
-        {
-            RegionAdapterMappings regionAdapterMappings = ServiceLocator.Current.GetInstance<RegionAdapterMappings>();
-            if (regionAdapterMappings != null)
-            {
-                regionAdapterMappings.RegisterMapping(typeof(Selector), ServiceLocator.Current.GetInstance<SelectorRegionAdapter>());
-                regionAdapterMappings.RegisterMapping(typeof(ItemsControl), ServiceLocator.Current.GetInstance<ItemsControlRegionAdapter>());
-                regionAdapterMappings.RegisterMapping(typeof(ContentControl), ServiceLocator.Current.GetInstance<ContentControlRegionAdapter>());
-            }
+        ///// <summary>
+        ///// Configures the default region adapter mappings to use in the application, in order
+        ///// to adapt UI controls defined in XAML to use a region and register it automatically.
+        ///// May be overwritten in a derived class to add specific mappings required by the application.
+        ///// </summary>
+        ///// <returns>The <see cref="RegionAdapterMappings"/> instance containing all the mappings.</returns>
+        //protected virtual RegionAdapterMappings ConfigureRegionAdapterMappings()
+        //{
+        //    RegionAdapterMappings regionAdapterMappings = ServiceLocator.Current.GetInstance<RegionAdapterMappings>();
+        //    if (regionAdapterMappings != null)
+        //    {
+        //        regionAdapterMappings.RegisterMapping(typeof(Selector), ServiceLocator.Current.GetInstance<SelectorRegionAdapter>());
+        //        regionAdapterMappings.RegisterMapping(typeof(ItemsControl), ServiceLocator.Current.GetInstance<ItemsControlRegionAdapter>());
+        //        regionAdapterMappings.RegisterMapping(typeof(ContentControl), ServiceLocator.Current.GetInstance<ContentControlRegionAdapter>());
+        //    }
 
-            return regionAdapterMappings;
-        }
+        //    return regionAdapterMappings;
+        //}
 
-        /// <summary>
-        /// Configures the <see cref="IRegionBehaviorFactory"/>. 
-        /// This will be the list of default behaviors that will be added to a region. 
-        /// </summary>
-        protected virtual IRegionBehaviorFactory ConfigureDefaultRegionBehaviors()
-        {
-            var defaultRegionBehaviorTypesDictionary = ServiceLocator.Current.GetInstance<IRegionBehaviorFactory>();
+        ///// <summary>
+        ///// Configures the <see cref="IRegionBehaviorFactory"/>. 
+        ///// This will be the list of default behaviors that will be added to a region. 
+        ///// </summary>
+        //protected virtual IRegionBehaviorFactory ConfigureDefaultRegionBehaviors()
+        //{
+        //    var defaultRegionBehaviorTypesDictionary = ServiceLocator.Current.GetInstance<IRegionBehaviorFactory>();
 
-            if (defaultRegionBehaviorTypesDictionary != null)
-            {
-                defaultRegionBehaviorTypesDictionary.AddIfMissing(AutoPopulateRegionBehavior.BehaviorKey,
-                                                                  typeof(AutoPopulateRegionBehavior));
+        //    if (defaultRegionBehaviorTypesDictionary != null)
+        //    {
+        //        defaultRegionBehaviorTypesDictionary.AddIfMissing(AutoPopulateRegionBehavior.BehaviorKey,
+        //                                                          typeof(AutoPopulateRegionBehavior));
 
-                defaultRegionBehaviorTypesDictionary.AddIfMissing(BindRegionContextToDependencyObjectBehavior.BehaviorKey,
-                                                                  typeof(BindRegionContextToDependencyObjectBehavior));
+        //        defaultRegionBehaviorTypesDictionary.AddIfMissing(BindRegionContextToDependencyObjectBehavior.BehaviorKey,
+        //                                                          typeof(BindRegionContextToDependencyObjectBehavior));
 
-                defaultRegionBehaviorTypesDictionary.AddIfMissing(RegionActiveAwareBehavior.BehaviorKey,
-                                                                  typeof(RegionActiveAwareBehavior));
+        //        defaultRegionBehaviorTypesDictionary.AddIfMissing(RegionActiveAwareBehavior.BehaviorKey,
+        //                                                          typeof(RegionActiveAwareBehavior));
 
-                defaultRegionBehaviorTypesDictionary.AddIfMissing(SyncRegionContextWithHostBehavior.BehaviorKey,
-                                                                  typeof(SyncRegionContextWithHostBehavior));
+        //        defaultRegionBehaviorTypesDictionary.AddIfMissing(SyncRegionContextWithHostBehavior.BehaviorKey,
+        //                                                          typeof(SyncRegionContextWithHostBehavior));
 
-                defaultRegionBehaviorTypesDictionary.AddIfMissing(RegionManagerRegistrationBehavior.BehaviorKey,
-                                                                  typeof(RegionManagerRegistrationBehavior));
+        //        defaultRegionBehaviorTypesDictionary.AddIfMissing(RegionManagerRegistrationBehavior.BehaviorKey,
+        //                                                          typeof(RegionManagerRegistrationBehavior));
 
-                defaultRegionBehaviorTypesDictionary.AddIfMissing(RegionMemberLifetimeBehavior.BehaviorKey,
-                                                  typeof(RegionMemberLifetimeBehavior));
+        //        defaultRegionBehaviorTypesDictionary.AddIfMissing(RegionMemberLifetimeBehavior.BehaviorKey,
+        //                                          typeof(RegionMemberLifetimeBehavior));
 
-                defaultRegionBehaviorTypesDictionary.AddIfMissing(ClearChildViewsRegionBehavior.BehaviorKey,
-                                                  typeof(ClearChildViewsRegionBehavior));
+        //        defaultRegionBehaviorTypesDictionary.AddIfMissing(ClearChildViewsRegionBehavior.BehaviorKey,
+        //                                          typeof(ClearChildViewsRegionBehavior));
 
-            }
+        //    }
 
-            return defaultRegionBehaviorTypesDictionary;
-        }
+        //    return defaultRegionBehaviorTypesDictionary;
+        //}
 
         /// <summary>
         /// Initializes the shell.

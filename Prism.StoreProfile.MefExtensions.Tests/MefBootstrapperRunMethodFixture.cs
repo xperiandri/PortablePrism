@@ -1,7 +1,3 @@
-using Microsoft.Practices.Prism.Logging;
-using Microsoft.Practices.Prism.MefExtensions;
-using Microsoft.Practices.Prism.Regions;
-using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 //===================================================================================
 // Microsoft patterns & practices
 // Composite Application Guidance for Windows Presentation Foundation and Silverlight
@@ -18,6 +14,11 @@ using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 // organization, product, domain name, email address, logo, person,
 // places, or events is intended or should be inferred.
 //===================================================================================
+
+using Microsoft.Practices.Prism.Logging;
+using Microsoft.Practices.Prism.MefExtensions;
+//using Microsoft.Practices.Prism.Regions;
+using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 using System.Collections.Generic;
 using System.Composition;
 using System.Threading.Tasks;
@@ -116,25 +117,25 @@ namespace Microsoft.Practices.Prism.MefExtensions.Tests
             Assert.IsTrue(bootstrapper.ConfigureContainerCalled);
         }
 
-        [TestMethod]
-        public void RunShouldCallConfigureRegionAdapterMappings()
-        {
-            var bootstrapper = new DefaultMefBootstrapper();
+        //[TestMethod]
+        //public void RunShouldCallConfigureRegionAdapterMappings()
+        //{
+        //    var bootstrapper = new DefaultMefBootstrapper();
 
-            bootstrapper.Run();
+        //    bootstrapper.Run();
 
-            Assert.IsTrue(bootstrapper.ConfigureRegionAdapterMappingsCalled);
-        }
+        //    Assert.IsTrue(bootstrapper.ConfigureRegionAdapterMappingsCalled);
+        //}
 
-        [TestMethod]
-        public void RunShouldCallConfigureDefaultRegionBehaviors()
-        {
-            var bootstrapper = new DefaultMefBootstrapper();
+        //[TestMethod]
+        //public void RunShouldCallConfigureDefaultRegionBehaviors()
+        //{
+        //    var bootstrapper = new DefaultMefBootstrapper();
 
-            bootstrapper.Run();
+        //    bootstrapper.Run();
 
-            Assert.IsTrue(bootstrapper.ConfigureDefaultRegionBehaviorsCalled);
-        }
+        //    Assert.IsTrue(bootstrapper.ConfigureDefaultRegionBehaviorsCalled);
+        //}
 
         [TestMethod]
         public void RunShouldCallRegisterFrameworkExceptionTypes()
@@ -191,18 +192,18 @@ namespace Microsoft.Practices.Prism.MefExtensions.Tests
             Assert.IsTrue(bootstrapper.InitializeModulesCalled);
         }
 
-        [TestMethod]
-        public async Task RunShouldAssignRegionManagerToReturnedShell()
-        {
-            await ExecuteOnUIThread(() =>
-                {
-                    var bootstrapper = new DefaultMefBootstrapper() { ShellObject = new UserControl() };
+        //[TestMethod]
+        //public async Task RunShouldAssignRegionManagerToReturnedShell()
+        //{
+        //    await ExecuteOnUIThread(() =>
+        //        {
+        //            var bootstrapper = new DefaultMefBootstrapper() { ShellObject = new UserControl() };
 
-                    bootstrapper.Run();
+        //            bootstrapper.Run();
 
-                    Assert.IsNotNull(RegionManager.GetRegionManager(bootstrapper.BaseShell));
-                });
-        }
+        //            Assert.IsNotNull(RegionManager.GetRegionManager(bootstrapper.BaseShell));
+        //        });
+        //}
 
         [TestMethod]
         public void RunShouldLogLoggerCreationSuccess()
@@ -274,25 +275,25 @@ namespace Microsoft.Practices.Prism.MefExtensions.Tests
             Assert.IsTrue(bootstrapper.TestLog.LogMessages.Contains(expectedMessageText));
         }
 
-        [TestMethod]
-        public void RunShouldLogAboutConfiguringRegionAdapters()
-        {
-            const string expectedMessageText = "Configuring region adapters";
-            var bootstrapper = new DefaultMefBootstrapper();
-            bootstrapper.Run();
+        //[TestMethod]
+        //public void RunShouldLogAboutConfiguringRegionAdapters()
+        //{
+        //    const string expectedMessageText = "Configuring region adapters";
+        //    var bootstrapper = new DefaultMefBootstrapper();
+        //    bootstrapper.Run();
 
-            Assert.IsTrue(bootstrapper.TestLog.LogMessages.Contains(expectedMessageText));
-        }
+        //    Assert.IsTrue(bootstrapper.TestLog.LogMessages.Contains(expectedMessageText));
+        //}
 
-        [TestMethod]
-        public void RunShouldLogAboutConfiguringRegionBehaviors()
-        {
-            const string expectedMessageText = "Configuring default region behaviors";
-            var bootstrapper = new DefaultMefBootstrapper();
-            bootstrapper.Run();
+        //[TestMethod]
+        //public void RunShouldLogAboutConfiguringRegionBehaviors()
+        //{
+        //    const string expectedMessageText = "Configuring default region behaviors";
+        //    var bootstrapper = new DefaultMefBootstrapper();
+        //    bootstrapper.Run();
 
-            Assert.IsTrue(bootstrapper.TestLog.LogMessages.Contains(expectedMessageText));
-        }
+        //    Assert.IsTrue(bootstrapper.TestLog.LogMessages.Contains(expectedMessageText));
+        //}
 
         [TestMethod]
         public void RunShouldLogAboutRegisteringFrameworkExceptionTypes()
@@ -304,33 +305,33 @@ namespace Microsoft.Practices.Prism.MefExtensions.Tests
             Assert.IsTrue(bootstrapper.TestLog.LogMessages.Contains(expectedMessageText));
         }
 
-        [TestMethod]
-        public async Task RunShouldLogAboutSettingTheRegionManager()
-        {
-            await ExecuteOnUIThread(() =>
-                {
-                    const string expectedMessageText = "Setting the RegionManager.";
-                    var bootstrapper = new DefaultMefBootstrapper() { ShellObject = new UserControl() };
+        //[TestMethod]
+        //public async Task RunShouldLogAboutSettingTheRegionManager()
+        //{
+        //    await ExecuteOnUIThread(() =>
+        //        {
+        //            const string expectedMessageText = "Setting the RegionManager.";
+        //            var bootstrapper = new DefaultMefBootstrapper() { ShellObject = new UserControl() };
 
-                    bootstrapper.Run();
+        //            bootstrapper.Run();
 
-                    Assert.IsTrue(bootstrapper.TestLog.LogMessages.Contains(expectedMessageText));
-                });
-        }
+        //            Assert.IsTrue(bootstrapper.TestLog.LogMessages.Contains(expectedMessageText));
+        //        });
+        //}
 
-        [TestMethod]
-        public async Task RunShouldLogAboutUpdatingRegions()
-        {
-            await ExecuteOnUIThread(() =>
-                {
-                    const string expectedMessageText = "Updating Regions.";
-                    var bootstrapper = new DefaultMefBootstrapper() { ShellObject = new UserControl() };
+        //[TestMethod]
+        //public async Task RunShouldLogAboutUpdatingRegions()
+        //{
+        //    await ExecuteOnUIThread(() =>
+        //        {
+        //            const string expectedMessageText = "Updating Regions.";
+        //            var bootstrapper = new DefaultMefBootstrapper() { ShellObject = new UserControl() };
 
-                    bootstrapper.Run();
+        //            bootstrapper.Run();
 
-                    Assert.IsTrue(bootstrapper.TestLog.LogMessages.Contains(expectedMessageText));
-                });
-        }
+        //            Assert.IsTrue(bootstrapper.TestLog.LogMessages.Contains(expectedMessageText));
+        //        });
+        //}
 
         [TestMethod]
         public void RunShouldLogAboutCreatingTheShell()
@@ -397,17 +398,17 @@ namespace Microsoft.Practices.Prism.MefExtensions.Tests
                     Assert.AreEqual("CreateLogger", bootstrapper.MethodCalls[0]);
                     Assert.AreEqual("CreateModuleCatalog", bootstrapper.MethodCalls[1]);
                     Assert.AreEqual("ConfigureModuleCatalog", bootstrapper.MethodCalls[2]);
-                    Assert.AreEqual("CreateAggregateCatalog", bootstrapper.MethodCalls[3]);
+                    Assert.AreEqual("CreateContainerConfiguration", bootstrapper.MethodCalls[3]);
                     Assert.AreEqual("ConfigureAggregateCatalog", bootstrapper.MethodCalls[4]);
                     Assert.AreEqual("CreateContainer", bootstrapper.MethodCalls[5]);
                     Assert.AreEqual("ConfigureContainer", bootstrapper.MethodCalls[6]);
                     Assert.AreEqual("ConfigureServiceLocator", bootstrapper.MethodCalls[7]);
-                    Assert.AreEqual("ConfigureRegionAdapterMappings", bootstrapper.MethodCalls[8]);
-                    Assert.AreEqual("ConfigureDefaultRegionBehaviors", bootstrapper.MethodCalls[9]);
-                    Assert.AreEqual("RegisterFrameworkExceptionTypes", bootstrapper.MethodCalls[10]);
-                    Assert.AreEqual("CreateShell", bootstrapper.MethodCalls[11]);
-                    Assert.AreEqual("InitializeShell", bootstrapper.MethodCalls[12]);
-                    Assert.AreEqual("InitializeModules", bootstrapper.MethodCalls[13]);
+                    //Assert.AreEqual("ConfigureRegionAdapterMappings", bootstrapper.MethodCalls[8]);
+                    //Assert.AreEqual("ConfigureDefaultRegionBehaviors", bootstrapper.MethodCalls[9]);
+                    Assert.AreEqual("RegisterFrameworkExceptionTypes", bootstrapper.MethodCalls[8]);
+                    Assert.AreEqual("CreateShell", bootstrapper.MethodCalls[9]);
+                    Assert.AreEqual("InitializeShell", bootstrapper.MethodCalls[10]);
+                    Assert.AreEqual("InitializeModules", bootstrapper.MethodCalls[11]);
                 });
         }
     }

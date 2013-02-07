@@ -49,7 +49,7 @@ namespace Microsoft.Practices.Prism.Events
         /// <param name="argument">The payload to pass <paramref name="action"/> while invoking it.</param>
         public override void InvokeAction(Action<TPayload> action, TPayload argument)
         {
-            dispatcher.BeginInvoke(action, argument);
+            dispatcher.BeginInvoke(action, argument).Wait();
         }
     }
 }

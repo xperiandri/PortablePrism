@@ -66,7 +66,7 @@ namespace Microsoft.Practices.Prism.Commands
             {
                 if (!Dispatcher.HasThreadAccess)
                 {
-                    Dispatcher.BeginInvoke((Action<object, EventHandler>)CallHandler, sender, eventHandler);
+                    Dispatcher.BeginInvoke((Action<object, EventHandler>)CallHandler, sender, eventHandler).Wait();
                 }
                 else
                 {

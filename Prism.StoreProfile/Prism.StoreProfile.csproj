@@ -164,6 +164,10 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="..\Common\CommonAssemblyInfo.cs">
+      <Link>CommonAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Commands\CommandBehaviorBase.cs" />
     <Compile Include="ModuleInitializer.cs" />
     <Compile Include="Bootstrapper.cs">
       <SubType>Code</SubType>
@@ -180,34 +184,10 @@
     <Compile Include="Modularity\ModuleDependencyAttribute.Desktop.cs" />
     <Compile Include="Modularity\ModuleManager.cs" />
     <Compile Include="Modularity\ModuleManager.Desktop.cs" />
+    <Compile Include="Navigation\ViewModelAwarePage.cs" />
     <Compile Include="ObservableObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\ResourceHelper.cs" />
-    <Compile Include="Regions\AllActiveRegion.cs" />
-    <Compile Include="Regions\Behaviors\BindRegionContextToDependencyObjectBehavior.cs" />
-    <Compile Include="Regions\Behaviors\ClearChildViewsRegionBehavior.cs" />
-    <Compile Include="Regions\Behaviors\DelayedRegionCreationBehavior.cs" />
-    <Compile Include="Regions\Behaviors\IHostAwareRegionBehavior.cs" />
-    <Compile Include="Regions\Behaviors\RegionActiveAwareBehavior.cs" />
-    <Compile Include="Regions\Behaviors\RegionManagerRegistrationBehavior.cs" />
-    <Compile Include="Regions\Behaviors\RegionMemberLifetimeBehavior.cs" />
-    <Compile Include="Regions\Behaviors\SelectorItemsSourceSyncBehavior.cs" />
-    <Compile Include="Regions\Behaviors\SyncRegionContextWithHostBehavior.cs" />
-    <Compile Include="Regions\ContentControlRegionAdapter.cs" />
-    <Compile Include="Regions\DefaultRegionManagerAccessor.cs" />
-    <Compile Include="Regions\IRegionManagerAccessor.cs" />
-    <Compile Include="Regions\ItemMetadata.cs" />
-    <Compile Include="Regions\ItemsControlRegionAdapter.cs" />
-    <Compile Include="Regions\Region.cs" />
-    <Compile Include="Regions\RegionAdapterBase.cs" />
-    <Compile Include="Regions\RegionContext.cs" />
-    <Compile Include="Regions\RegionManager.cs" />
-    <Compile Include="Regions\RegionNavigationContentLoader.cs" />
-    <Compile Include="Regions\RegionNavigationService.cs" />
-    <Compile Include="Regions\SelectorRegionAdapter.cs" />
-    <Compile Include="Regions\SingleActiveRegion.cs" />
-    <Compile Include="Regions\ViewsCollection.cs" />
-    <Compile Include="Regions\ViewsCollection.Desktop.cs" />
     <None Include="FodyWeavers.xml" />
     <None Include="packages.config" />
   </ItemGroup>

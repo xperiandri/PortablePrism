@@ -16,6 +16,7 @@ using Microsoft.Practices.Prism.Properties;
 // places, or events is intended or should be inferred.
 //===================================================================================
 using System;
+using System.Diagnostics.Contracts;
 using System.Windows;
 using Windows.UI.Xaml;
 
@@ -61,10 +62,8 @@ namespace Microsoft.Practices.Prism.Regions.Behaviors
             }
             set
             {
-                if (IsAttached)
-                {
-                    throw new InvalidOperationException(ResourceHelper.HostControlCannotBeSetAfterAttach);
-                }
+                if (IsAttached) throw new InvalidOperationException(ResourceHelper.HostControlCannotBeSetAfterAttach);
+                Contract.EndContractBlock();
                 this.hostControl = value;
             }
         }
