@@ -75,6 +75,7 @@
     <CodeContractsMissingPublicRequiresAsWarnings>True</CodeContractsMissingPublicRequiresAsWarnings>
     <CodeContractsSQLServerOption />
     <CodeContractsFailBuildOnWarnings>False</CodeContractsFailBuildOnWarnings>
+    <DocumentationFile>Bin\Release\Microsoft.Practices.Prism.Interactivity.Phone.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>
@@ -123,6 +124,7 @@
       <Link>CommonAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="InteractionRequest\InteractionRequestTrigger.cs" />
     <Compile Include="InteractionRequest\MessageBoxAction.cs" />
     <Compile Include="InteractionRequest\ToastPopupAction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -15,6 +15,7 @@
 // places, or events is intended or should be inferred.
 //===================================================================================
 using System;
+using System.Diagnostics.Contracts;
 
 namespace Microsoft.Practices.Prism.Interactivity.InteractionRequest
 {
@@ -36,7 +37,12 @@ namespace Microsoft.Practices.Prism.Interactivity.InteractionRequest
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1030:UseEventsWhereAppropriate")]
         public void Raise(T context)
         {
-            this.Raise(context, c => { });
+            Contract.Requires<ArgumentNullException>(context != null);
+            var handler = this.Raised;
+            if (handler != null)
+            {
+                handler(this, new InteractionRequestedEventArgs(context, null));
+            }
         }
 
         /// <summary>
@@ -47,6 +53,8 @@ namespace Microsoft.Practices.Prism.Interactivity.InteractionRequest
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1030:UseEventsWhereAppropriate")]
         public void Raise(T context, Action<T> callback)
         {
+            Contract.Requires<ArgumentNullException>(context != null);
+            Contract.Requires<ArgumentNullException>(callback != null);
             var handler = this.Raised;
             if (handler != null)
             {
