@@ -36,11 +36,11 @@ namespace Microsoft.Practices.Prism.Interactivity.InteractionRequest
                 return;
             }
 
-			var confirmation = requestedEventArgs.Context as IConfirmation;
-			var mbb = confirmation != null ? MessageBoxButton.OKCancel : MessageBoxButton.OK;
-			var mbr = MessageBox.Show ((string) requestedEventArgs.Context.Content, requestedEventArgs.Context.Title, mbb);
-			if (confirmation != null)
-				confirmation.Confirmed = mbr == MessageBoxResult.OK || mbr == MessageBoxResult.Yes;
+            var confirmation = requestedEventArgs.Context as IConfirmation;
+            var mbb = confirmation != null ? MessageBoxButton.OKCancel : MessageBoxButton.OK;
+            var mbr = MessageBox.Show((string)requestedEventArgs.Context.Content, requestedEventArgs.Context.Title, mbb);
+            if (confirmation != null)
+                confirmation.Confirmed = mbr == MessageBoxResult.OK || mbr == MessageBoxResult.Yes;
             if (requestedEventArgs.Callback != null)
             {
                 requestedEventArgs.Callback.Invoke();
