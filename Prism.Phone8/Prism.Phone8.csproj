@@ -128,6 +128,7 @@
     <Compile Include="..\Prism.StoreProfile\Commands\WeakEventHandlerManager.Desktop.cs">
       <Link>Commands\WeakEventHandlerManager.Desktop.cs</Link>
     </Compile>
+    <Compile Include="Commands\CommandBehaviorBase.cs" />
     <Compile Include="Events\DefaultDispatcher.Silverlight.cs" />
     <Compile Include="ListExtensions.Silverlight.cs" />
     <Compile Include="ModuleInitializer.cs" />

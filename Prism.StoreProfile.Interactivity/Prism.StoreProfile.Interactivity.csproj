@@ -140,6 +140,7 @@
     <Compile Include="..\Common\CommonAssemblyInfo.cs">
       <Link>CommonAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Commands\CommandBehaviorBase.cs" />
     <Compile Include="InteractionRequest\InteractionRequestTrigger.cs" />
     <Compile Include="InteractionRequest\PopupMessageDialogAction.cs" />
     <Compile Include="InteractionRequest\PopupDialogActionBase.cs" />
